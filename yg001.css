@@ -1,0 +1,106 @@
+/* =========================================
+   PRODUCT CARD
+   ========================================= */
+
+.category-box {
+    position: relative;
+    border-radius: 18px;
+    background: #fff;
+}
+
+/* Product image */
+.category-box .imgWrapper {
+    overflow: hidden;
+    border-radius: 18px 18px 0 0;
+}
+
+.category-box .imgWrapper img {
+    display: block;
+    width: 100%;
+}
+
+
+/* =========================================
+   HIDE ALL BOTTOM BUTTONS
+   ========================================= */
+
+.category-box .mainButtonGreen.moreInfo,
+.category-box .mainButtonGrey.moreInfo,
+.category-box .mainButtonGrey.email {
+    display: none !important;
+}
+
+
+/* =========================================
+   BADGES
+   ========================================= */
+
+.category-box .savingFlash,
+.category-box .overlay {
+    position: absolute;
+    z-index: 10;
+}
+
+.category-box .overlay {
+    z-index: 20;
+}
+
+
+/* =========================================
+   OUT OF STOCK ROUNDAL
+   ========================================= */
+
+.category-box:has(.mainButtonGrey.moreInfo) .savingFlash {
+    background: #6b6b6b !important;
+}
+
+.category-box:has(.mainButtonGrey.moreInfo) .savingFlash .save {
+    display: none;
+}
+
+.category-box:has(.mainButtonGrey.moreInfo) .savingFlash::after {
+    content: "OUT\A OF\A STOCK";
+    white-space: pre;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.05;
+    text-align: center;
+}
+
+
+/* =========================================
+   EMAIL WHEN AVAILABLE ROUNDAL
+   ========================================= */
+
+.category-box:has(.mainButtonGrey.email) .savingFlash {
+    background: #6b6b6b !important;
+}
+
+.category-box:has(.mainButtonGrey.email) .savingFlash .save {
+    display: none;
+}
+
+.category-box:has(.mainButtonGrey.email) .savingFlash::after {
+    content: "EMAIL\A WHEN\A AVAILABLE";
+    white-space: pre;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.05;
+    text-align: center;
+}
