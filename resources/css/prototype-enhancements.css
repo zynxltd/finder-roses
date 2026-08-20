@@ -221,23 +221,31 @@ html[data-proto-usp-ticker="on"] .site-nav .usp-box .divider {
 }
 
 /* =========================================================
-   FEATURE: CRO header vs classic
+   FEATURE: CRO header vs classic (CRO on by default)
    ========================================================= */
 
-.header-cro {
-    display: none;
-}
-
-html[data-proto-cro-header="on"] .header-legacy {
+.header-legacy {
     display: none !important;
 }
 
-html[data-proto-cro-header="on"] .header-cro {
+.header-cro {
     display: block;
 }
 
-html[data-proto-cro-header="on"] .usp-wrapper {
+.usp-wrapper {
     display: none;
+}
+
+html[data-proto-cro-header="off"] .header-legacy {
+    display: block !important;
+}
+
+html[data-proto-cro-header="off"] .header-cro {
+    display: none;
+}
+
+html[data-proto-cro-header="off"] .usp-wrapper {
+    display: block;
 }
 
 @keyframes protoUspFade {

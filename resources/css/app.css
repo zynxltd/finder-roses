@@ -475,14 +475,16 @@ main {
 }
 
 .header-cro-bar {
+    position: sticky;
+    top: 0;
+    z-index: 900;
     background: #474747;
     transition: box-shadow .2s ease, background .2s ease;
 }
 
-html[data-proto-cro-header="on"] .header-cro-bar {
-    position: sticky;
-    top: 0;
-    z-index: 900;
+html[data-proto-cro-header="off"] .header-cro-bar {
+    position: static;
+    z-index: auto;
 }
 
 .header-cro-bar.is-scrolled {

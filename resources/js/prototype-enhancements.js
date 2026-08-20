@@ -1,5 +1,5 @@
 export const PROTOTYPE_FEATURES = [
-    { id: 'cro-header', label: 'CRO header (vs classic)', defaultOn: false },
+    { id: 'cro-header', label: 'CRO header (vs classic)', defaultOn: true },
     { id: 'card-hover', label: 'Card hover zoom + chips', defaultOn: false },
     { id: 'count-pulse', label: 'Animated rose count', defaultOn: true },
     { id: 'stagger-grid', label: 'Staggered grid entrance', defaultOn: true },
@@ -15,7 +15,7 @@ export const PROTOTYPE_FEATURES = [
     { id: 'match-reasons', label: 'Why this rose?', defaultOn: false },
 ];
 
-const STORAGE_KEY = 'roseFinderPrototypeFeatures.v7';
+const STORAGE_KEY = 'roseFinderPrototypeFeatures.v8';
 
 const DEFAULTS = Object.fromEntries(
     PROTOTYPE_FEATURES.map((feature) => [feature.id, feature.defaultOn]),
