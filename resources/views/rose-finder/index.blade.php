@@ -415,6 +415,10 @@
     padding: 28px 0 0;
 }
 
+.rose-finder .active-filters .clear-filters {
+    margin-left: auto;
+}
+
 .rose-finder .active-filters-label {
     color: var(--rf-muted);
 
@@ -1853,6 +1857,13 @@
                     <span>Customise your search</span>
                 </button>
 
+                <div
+                    class="finder-hero-meta"
+                    data-finder-hero-meta
+                >
+                    @include('rose-finder.partials.hero-meta')
+                </div>
+
             </div>
 
             <div class="proto-hero-tools" data-proto-hero-extras>
@@ -2769,6 +2780,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let submitting = false;
     let pendingSubmit = false;
 
+    const heroMeta =
+        finder.querySelector('[data-finder-hero-meta]');
+
     const chipsContainer =
         finder.querySelector('[data-finder-chips]');
 
@@ -2871,6 +2885,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (chipsContainer) {
                 chipsContainer.innerHTML = data.chips;
+            }
+
+            if (heroMeta) {
+                heroMeta.innerHTML = data.heroMeta || '';
             }
 
             if (drawerFooter) {
@@ -2999,6 +3017,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const link = event.target.closest(
             [
                 '.active-chips a[href]',
+                '[data-finder-hero-meta] a[href]',
                 'a.clear-filters[href]',
                 'a.drawer-clear[href]',
                 '.empty-results a[href]',

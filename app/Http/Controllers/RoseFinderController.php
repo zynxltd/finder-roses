@@ -36,6 +36,7 @@ class RoseFinderController extends Controller
                 'total' => $roses->total(),
                 'chips' => view('rose-finder.partials.chips', $data)->render(),
                 'results' => view('rose-finder.partials.results', $data)->render(),
+                'heroMeta' => view('rose-finder.partials.hero-meta', $data)->render(),
                 'drawerFooter' => view('rose-finder.partials.drawer-footer', $data)->render(),
             ]);
         }

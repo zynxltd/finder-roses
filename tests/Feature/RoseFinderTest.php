@@ -138,6 +138,7 @@ it('returns partial finder updates as json', function () {
             'total',
             'results',
             'chips',
+            'heroMeta',
             'drawerFooter',
         ])
         ->assertJsonPath('total', 1);

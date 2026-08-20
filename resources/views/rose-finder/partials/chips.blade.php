@@ -37,6 +37,13 @@
 
         </ul>
 
+        <a
+            class="clear-filters"
+            href="{{ route('rose-finder') }}"
+        >
+            Clear all
+        </a>
+
     </div>
 
 @endif
