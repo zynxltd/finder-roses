@@ -11,9 +11,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 </head>
-<body>
-    @include('partials.site-header')
-
+<body>@include('partials.site-header')
     <main>
         @yield('content')
     </main>

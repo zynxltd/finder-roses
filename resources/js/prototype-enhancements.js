@@ -8,13 +8,13 @@ export const PROTOTYPE_FEATURES = [
     { id: 'compare-tray', label: 'Compare tray (pin 3)', defaultOn: false },
     { id: 'share-search', label: 'Share this search', defaultOn: false },
     { id: 'colour-empty', label: 'Colour-aware empty state', defaultOn: true },
-    { id: 'hero-atmosphere', label: 'Hero atmosphere / parallax', defaultOn: true },
+    { id: 'hero-atmosphere', label: 'Hero atmosphere / parallax', defaultOn: false },
     { id: 'drawer-icons', label: 'Drawer section icons', defaultOn: true },
     { id: 'product-cues', label: 'Inline product cues', defaultOn: false },
     { id: 'match-reasons', label: 'Why this rose?', defaultOn: false },
 ];
 
-const STORAGE_KEY = 'roseFinderPrototypeFeatures.v5';
+const STORAGE_KEY = 'roseFinderPrototypeFeatures.v6';
 
 const DEFAULTS = Object.fromEntries(
     PROTOTYPE_FEATURES.map((feature) => [feature.id, feature.defaultOn]),
