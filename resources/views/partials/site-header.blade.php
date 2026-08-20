@@ -1,16 +1,3 @@
-<div class="top-site-message">
-    <div class="inner">
-        <span class="desktop">
-            Next Day Delivery available — select at checkout and order before 12:00 midday. For more delivery information
-            <a href="https://www.roses.co.uk/delivery-information">Click Here</a>
-        </span>
-        <span class="mobile">
-            Next Day Delivery |
-            <a href="https://www.roses.co.uk/delivery-information">Find Out More</a>
-        </span>
-    </div>
-</div>
-
 <header id="nav" class="site-nav">
     <div class="header-top-wrapper">
         <div class="header-container">

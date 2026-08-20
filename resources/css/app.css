@@ -23,7 +23,8 @@ html {
     overflow-x: clip;
     margin: 0;
     padding: 0;
-    background: #dee5ca;
+    background: var(--white);
+    display: block;
 }
 body {
     margin: 0;
@@ -60,35 +61,6 @@ main {
 /* =========================================================
    SITE HEADER (roses.co.uk)
    ========================================================= */
-
-.top-site-message {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    background: #dee5ca;
-    color: #333;
-    text-align: center;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: .6px;
-    line-height: 20px;
-}
-
-.top-site-message .inner {
-    width: min(80%, 1100px);
-    margin: 0 auto;
-    padding: 8px 16px;
-}
-
-.top-site-message .inner a {
-    color: #333;
-    text-decoration: underline;
-}
-
-.top-site-message .inner .desktop { display: block; }
-.top-site-message .inner .mobile { display: none; }
 
 .site-nav {
     display: block;
@@ -624,9 +596,6 @@ body.mobile-overlay-open {
     .desktop-only { display: none !important; }
     .mobile-only { display: block !important; }
 
-    .top-site-message .inner .desktop { display: none; }
-    .top-site-message .inner .mobile { display: block; }
-
     .site-nav .header-top-wrapper {
         padding: 4px 0 8px;
     }
@@ -700,8 +669,7 @@ body.mobile-overlay-open {
     }
 
     .site-nav .header-utility .label,
-    .site-nav .top-icons .label,
-    .top-site-message .inner .mobile {
+    .site-nav .top-icons .label {
         display: none;
     }
 
