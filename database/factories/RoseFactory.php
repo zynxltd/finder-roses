@@ -19,7 +19,7 @@ class RoseFactory extends Factory
             'name' => fake()->unique()->words(2, true).' Rose',
             'type' => 'Shrub Rose',
             'description' => fake()->sentence(12),
-            'image_url' => 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=85',
+            'image_url' => 'https://harkness-roses.s3.amazonaws.com/700/780038.jpg',
             'locations' => ['mixed_borders'],
             'sizes' => ['medium'],
             'fragrance' => 'medium',
@@ -30,7 +30,7 @@ class RoseFactory extends Factory
             'flowering' => 'repeat_flowering',
             'features' => [],
             'price' => 29.00,
-            'shop_url' => '#',
+            'shop_url' => 'https://www.roses.co.uk/product/999999/test-'.fake()->unique()->slug(2),
         ];
     }
 }

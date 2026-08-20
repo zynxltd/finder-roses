@@ -1,0 +1,552 @@
+/* =========================================================
+   PROTOTYPE PANEL
+   ========================================================= */
+
+.prototype-panel {
+    position: fixed;
+    z-index: 12000;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-family: "Raleway", sans-serif;
+    pointer-events: none;
+}
+
+.prototype-panel-tab,
+.prototype-panel-body {
+    pointer-events: auto;
+}
+
+.prototype-panel-tab {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    min-height: 120px;
+    padding: 14px 0;
+    border: 0;
+    border-radius: 0 10px 10px 0;
+    background: #474747;
+    color: #f2eadd;
+    cursor: pointer;
+    box-shadow: 4px 0 18px rgba(0, 0, 0, .18);
+    transition: background .2s ease, width .2s ease;
+}
+
+.prototype-panel-tab:hover,
+.prototype-panel.is-open .prototype-panel-tab {
+    background: #2e2e2e;
+    width: 38px;
+}
+
+.prototype-panel-tab-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.prototype-panel-body {
+    position: absolute;
+    top: 50%;
+    left: 38px;
+    transform: translateY(-50%);
+    width: min(300px, calc(100vw - 48px));
+    max-height: min(70vh, 560px);
+    overflow: auto;
+    padding: 16px 16px 14px;
+    background: #fff;
+    color: #474747;
+    border: 1px solid #ddd8d0;
+    border-left: 0;
+    border-radius: 0 14px 14px 0;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, .16);
+}
+
+.prototype-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.prototype-panel-head strong {
+    font-size: 13px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.prototype-panel-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.prototype-panel-actions button {
+    border: 1px solid #ddd8d0;
+    background: #f7f4ec;
+    color: #474747;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.prototype-panel-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.prototype-panel-list label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.35;
+    cursor: pointer;
+}
+
+.prototype-panel-list input {
+    margin-top: 2px;
+}
+
+/* =========================================================
+   FEATURE: card hover chips
+   ========================================================= */
+
+html[data-proto-card-hover="on"] .rose-card .proto-hover-chips {
+    display: flex;
+}
+
+.proto-hover-chips {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    flex-wrap: wrap;
+    gap: 6px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .25s ease, transform .25s ease;
+    pointer-events: none;
+}
+
+.proto-hover-chips span {
+    padding: 6px 8px;
+    background: rgba(255, 255, 255, .94);
+    color: #474747;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+html[data-proto-card-hover="on"] .rose-card:hover .proto-hover-chips,
+html[data-proto-card-hover="on"] .rose-card:focus-within .proto-hover-chips {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+html[data-proto-card-hover="on"] .rose-card:hover .rose-image-wrap img {
+    transform: scale(1.08);
+}
+
+/* =========================================================
+   FEATURE: count pulse
+   ========================================================= */
+
+.proto-count-pulse {
+    animation: protoCountPulse .45s ease;
+}
+
+@keyframes protoCountPulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.08); color: #8a3a4a; }
+    100% { transform: scale(1); }
+}
+
+/* =========================================================
+   FEATURE: stagger grid
+   ========================================================= */
+
+html[data-proto-stagger-grid="on"] .results-grid .rose-card {
+    animation: protoStaggerIn .55s ease both;
+    animation-delay: var(--proto-stagger, 0ms);
+}
+
+@keyframes protoStaggerIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   FEATURE: USP ticker
+   ========================================================= */
+
+html[data-proto-usp-ticker="on"] .site-nav .usp-inner {
+    display: block;
+    text-align: center;
+    min-height: 42px;
+}
+
+html[data-proto-usp-ticker="on"] .site-nav .usp-box {
+    display: none;
+    padding: 10px 12px;
+}
+
+html[data-proto-usp-ticker="on"] .site-nav .usp-box.proto-usp-active {
+    display: block;
+    animation: protoUspFade .45s ease;
+}
+
+html[data-proto-usp-ticker="on"] .site-nav .usp-box .divider {
+    display: none;
+}
+
+@keyframes protoUspFade {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   FEATURE: quick start / surprise / share
+   ========================================================= */
+
+[data-proto-quick-start],
+[data-proto-hero-extras] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+html[data-proto-quick-start="off"] [data-proto-quick-start],
+html[data-proto-surprise-me="off"] [data-proto-surprise],
+html[data-proto-share-search="off"] [data-proto-share] {
+    display: none !important;
+}
+
+.proto-chip-btn {
+    border: 1px solid #474747;
+    background: transparent;
+    color: #474747;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.proto-chip-btn:hover,
+.proto-chip-btn[data-copied="1"] {
+    background: #474747;
+    color: #fff;
+}
+
+.proto-chip-btn.is-accent {
+    background: #474747;
+    color: #fff;
+}
+
+.proto-chip-btn.is-accent:hover {
+    background: #2e2e2e;
+}
+
+/* =========================================================
+   FEATURE: colour empty
+   ========================================================= */
+
+html[data-proto-colour-empty="off"] .proto-colour-empty {
+    display: none !important;
+}
+
+.proto-colour-empty {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 18px 0 8px;
+}
+
+.proto-colour-empty img,
+.proto-colour-empty .colour-swatch {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.proto-relax-colour {
+    margin-top: 8px;
+}
+
+/* =========================================================
+   FEATURE: hero atmosphere
+   ========================================================= */
+
+html[data-proto-hero-atmosphere="on"] .rose-finder-hero {
+    isolation: isolate;
+    overflow: hidden;
+}
+
+html[data-proto-hero-atmosphere="on"] .rose-finder-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(circle at 18% 30%, rgba(244, 220, 224, .55), transparent 42%),
+        radial-gradient(circle at 82% 20%, rgba(222, 229, 202, .5), transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(242, 234, 221, .7), transparent 45%);
+    transform: translate(var(--proto-parallax-x, 0), var(--proto-parallax-y, 0));
+    transition: transform .12s linear;
+    pointer-events: none;
+}
+
+html[data-proto-hero-atmosphere="on"] .rose-finder-hero-content,
+html[data-proto-hero-atmosphere="on"] .rose-finder-hero-decoration {
+    position: relative;
+    z-index: 1;
+}
+
+html[data-proto-hero-atmosphere="on"] .rose-finder-hero-decoration {
+    transform: translate(
+        calc(var(--proto-parallax-x, 0) * -0.6),
+        calc(var(--proto-parallax-y, 0) * -0.6)
+    );
+}
+
+/* =========================================================
+   FEATURE: drawer icons
+   ========================================================= */
+
+html[data-proto-drawer-icons="off"] .proto-drawer-icon {
+    display: none !important;
+}
+
+.proto-drawer-icon {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.proto-drawer-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.characteristic-group legend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* =========================================================
+   FEATURE: product cues + match reasons
+   ========================================================= */
+
+html[data-proto-product-cues="off"] .proto-product-cues,
+html[data-proto-match-reasons="off"] .proto-match-reasons,
+html[data-proto-compare-tray="off"] [data-proto-compare] {
+    display: none !important;
+}
+
+.proto-product-cues {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0 4px;
+}
+
+.proto-cue-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #504e4e;
+}
+
+.proto-height-bar {
+    flex: 1;
+    height: 6px;
+    background: #efeae2;
+    overflow: hidden;
+}
+
+.proto-height-bar > span {
+    display: block;
+    height: 100%;
+    background: #474747;
+}
+
+.proto-fragrance-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.proto-fragrance-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ddd8d0;
+}
+
+.proto-fragrance-dots span.is-on {
+    background: #8a3a4a;
+}
+
+.proto-flowering-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #f4dce0;
+    color: #474747;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.proto-match-reasons {
+    margin: 8px 0 0;
+    color: #6b6760;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.proto-compare-btn {
+    margin-top: 10px;
+    border: 1px solid #ddd8d0;
+    background: #fff;
+    color: #474747;
+    padding: 8px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.proto-compare-btn[aria-pressed="true"] {
+    background: #474747;
+    color: #fff;
+}
+
+/* =========================================================
+   FEATURE: compare tray
+   ========================================================= */
+
+.proto-compare-tray {
+    position: fixed;
+    z-index: 11000;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, .97);
+    border-top: 1px solid #ddd8d0;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, .08);
+}
+
+.proto-compare-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.proto-compare-slots {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+    overflow: auto;
+}
+
+.proto-compare-card {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    min-width: 180px;
+    padding: 8px;
+    background: #f7f4ec;
+}
+
+.proto-compare-card img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+}
+
+.proto-compare-card h4 {
+    margin: 0;
+    font-size: 13px;
+}
+
+.proto-compare-card p {
+    margin: 2px 0 4px;
+    font-size: 11px;
+    color: #6b6760;
+}
+
+.proto-compare-card a {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.proto-compare-card button {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    border: 0;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.proto-compare-clear {
+    border: 1px solid #ddd8d0;
+    background: #fff;
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+body.proto-compare-open {
+    padding-bottom: 110px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .proto-count-pulse,
+    html[data-proto-stagger-grid="on"] .results-grid .rose-card.proto-stagger-in,
+    html[data-proto-usp-ticker="on"] .site-nav .usp-box.proto-usp-active {
+        animation: none !important;
+    }
+}

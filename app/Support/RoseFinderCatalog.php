@@ -142,6 +142,22 @@ class RoseFinderCatalog
     }
 
     /**
+     * @return array<string, string>
+     */
+    public static function colourIcons(): array
+    {
+        return [
+            'pink' => 'PINK.png',
+            'yellow' => 'YELLOW.png',
+            'red' => 'RED.png',
+            'white_cream' => 'WHITE_AND_CREAM.png',
+            'apricot_orange' => 'APRICOT_AND_ORANGE.png',
+            'purple' => 'BLUE_AND_PURPLE.png',
+            'bi_colour' => 'MULTICOLOUR.png',
+        ];
+    }
+
+    /**
      * @return list<array{key: string, title: string, options: list<array{value: string, label: string, icon: string}>}>
      */
     public static function characteristicGroups(): array

@@ -24,7 +24,9 @@ class RoseFinder
      */
     public function search(array $filters): LengthAwarePaginator
     {
-        $query = Rose::query()->orderBy('name');
+        $query = Rose::query()
+            ->where('shop_url', 'like', 'https://www.roses.co.uk/product/%')
+            ->orderBy('name');
 
         $this->whereAnyJsonContains($query, 'locations', $filters['locations']);
         $this->whereAnyJsonContains($query, 'light', $filters['lights']);
@@ -51,7 +53,9 @@ class RoseFinder
             $query->whereJsonContains('colours', $filters['colour']);
         }
 
-        return $query->paginate(12)->withQueryString();
+        return $query->paginate(12)->appends(
+            collect(request()->query())->except('partial')->all()
+        );
     }
 
     /**

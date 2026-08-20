@@ -11,7 +11,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Forum&family=Raleway:wght@300;400;500;600;700&display=swap');
 
-.rose-finder-page {
+.rose-finder {
     --rf-ink: #474747;
     --rf-muted: #504e4e;
     --rf-charcoal: #474747;
@@ -25,40 +25,46 @@
     --rf-max: 1400px;
 
     width: 100%;
-    max-width: var(--rf-max);
-    margin: 0 auto;
-    padding: 0 24px 90px;
+    max-width: 100%;
+    overflow-x: clip;
 
     color: var(--rf-ink);
     font-family: "Raleway", sans-serif;
 }
 
-.rose-finder-page *,
-.rose-finder-page *::before,
-.rose-finder-page *::after {
+.rose-finder-page {
+    width: 100%;
+    max-width: var(--rf-max);
+    margin: 0 auto;
+    padding: 0 24px 90px;
+}
+
+.rose-finder *,
+.rose-finder *::before,
+.rose-finder *::after {
     box-sizing: border-box;
 }
 
-.rose-finder-page a {
+.rose-finder a {
     color: inherit;
     text-decoration: none;
 }
 
-.rose-finder-page button,
-.rose-finder-page input,
-.rose-finder-page select {
+.rose-finder button,
+.rose-finder input,
+.rose-finder select {
     font: inherit;
 }
 
-.rose-finder-page button {
+.rose-finder button {
     cursor: pointer;
 }
 
-.rose-finder-page img {
+.rose-finder img {
     max-width: 100%;
 }
 
-.rose-finder-page .visually-hidden {
+.rose-finder .visually-hidden {
     position: absolute !important;
     width: 1px !important;
     height: 1px !important;
@@ -75,11 +81,13 @@
    HERO
    ========================================================= */
 
-.rose-finder-page .rose-finder-hero {
+.rose-finder .rose-finder-hero {
     position: relative;
     overflow: hidden;
 
-    margin: 0 -24px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
     padding: 68px 24px 64px;
 
     background:
@@ -91,7 +99,7 @@
         );
 }
 
-.rose-finder-page .rose-finder-hero-content {
+.rose-finder .rose-finder-hero-content {
     position: relative;
     z-index: 2;
 
@@ -99,22 +107,7 @@
     margin: 0 auto;
 }
 
-.rose-finder-page .finder-eyebrow {
-    display: block;
-
-    margin-bottom: 14px;
-
-    color: var(--rf-charcoal);
-
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .18em;
-    line-height: 1.2;
-
-    text-transform: uppercase;
-}
-
-.rose-finder-page .rose-finder-hero h1 {
+.rose-finder .rose-finder-hero h1 {
     max-width: 850px;
 
     margin: 0;
@@ -128,8 +121,8 @@
     line-height: .95;
 }
 
-.rose-finder-page .rose-finder-hero p {
-    max-width: 700px;
+.rose-finder .rose-finder-hero p {
+    max-width: 1000px;
 
     margin: 24px 0 0;
 
@@ -139,27 +132,69 @@
     line-height: 1.75;
 }
 
-.rose-finder-page .finder-hero-meta {
+.rose-finder .finder-hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    margin-top: 28px;
+}
+
+.rose-finder .hero-customise {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 48px;
+
+    padding: 0 22px;
+
+    border: 1px solid var(--rf-charcoal);
+
+    background: var(--rf-charcoal);
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.rose-finder .hero-customise:hover {
+    background: var(--rf-charcoal-dark);
+}
+
+.rose-finder .hero-customise:focus-visible {
+    outline: 2px solid var(--rf-charcoal);
+    outline-offset: 3px;
+}
+
+.rose-finder .finder-hero-meta {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
-
-    margin-top: 27px;
 
     color: var(--rf-muted);
 
     font-size: 13px;
 }
 
-.rose-finder-page .finder-hero-meta strong {
+.rose-finder .finder-hero-meta strong {
     color: var(--rf-charcoal);
 
     font-size: 18px;
     font-weight: 700;
 }
 
-.rose-finder-page .finder-hero-meta a {
+.rose-finder .finder-hero-meta a {
     font-weight: 600;
 
     text-decoration: underline;
@@ -167,11 +202,11 @@
     text-underline-offset: 4px;
 }
 
-.rose-finder-page .finder-hero-meta a:hover {
+.rose-finder .finder-hero-meta a:hover {
     opacity: .7;
 }
 
-.rose-finder-page .meta-divider {
+.rose-finder .meta-divider {
     width: 1px;
     height: 20px;
 
@@ -183,21 +218,21 @@
    HERO DECORATION
    ========================================================= */
 
-.rose-finder-page .rose-finder-hero-decoration {
+.rose-finder .rose-finder-hero-decoration {
     position: absolute;
     inset: 0;
 
     pointer-events: none;
 }
 
-.rose-finder-page .hero-circle {
+.rose-finder .hero-circle {
     position: absolute;
 
     border: 1px solid rgba(71, 71, 71, .09);
     border-radius: 50%;
 }
 
-.rose-finder-page .hero-circle-one {
+.rose-finder .hero-circle-one {
     width: 520px;
     height: 520px;
 
@@ -205,7 +240,7 @@
     right: -80px;
 }
 
-.rose-finder-page .hero-circle-two {
+.rose-finder .hero-circle-two {
     width: 380px;
     height: 380px;
 
@@ -213,7 +248,7 @@
     bottom: -300px;
 }
 
-.rose-finder-page .hero-leaf {
+.rose-finder .hero-leaf {
     position: absolute;
 
     color: rgba(71, 71, 71, .08);
@@ -222,14 +257,14 @@
     line-height: 1;
 }
 
-.rose-finder-page .hero-leaf-one {
+.rose-finder .hero-leaf-one {
     top: 45px;
     right: 12%;
 
     font-size: 125px;
 }
 
-.rose-finder-page .hero-leaf-two {
+.rose-finder .hero-leaf-two {
     right: 25%;
     bottom: -75px;
 
@@ -241,7 +276,7 @@
    TOP BAR
    ========================================================= */
 
-.rose-finder-page .finder-topbar {
+.rose-finder .finder-topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -252,13 +287,13 @@
     border-bottom: 1px solid var(--rf-line);
 }
 
-.rose-finder-page .finder-heading {
+.rose-finder .finder-heading {
     display: flex;
     align-items: center;
     gap: 13px;
 }
 
-.rose-finder-page .finder-step {
+.rose-finder .finder-step {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -277,7 +312,7 @@
     font-weight: 700;
 }
 
-.rose-finder-page .finder-label {
+.rose-finder .finder-label {
     display: block;
 
     color: var(--rf-muted);
@@ -290,7 +325,7 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .finder-heading h2 {
+.rose-finder .finder-heading h2 {
     margin: 5px 0 0;
 
     color: var(--rf-muted);
@@ -301,13 +336,13 @@
     line-height: 1.05;
 }
 
-.rose-finder-page .finder-toolbar-actions {
+.rose-finder .finder-toolbar-actions {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-.rose-finder-page .clear-filters {
+.rose-finder .clear-filters {
     color: var(--rf-charcoal);
 
     font-size: 11px;
@@ -317,7 +352,7 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .clear-filters:hover {
+.rose-finder .clear-filters:hover {
     text-decoration: underline;
 }
 
@@ -326,7 +361,7 @@
    FILTER BUTTON
    ========================================================= */
 
-.rose-finder-page .filter-trigger {
+.rose-finder .filter-trigger {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -352,16 +387,16 @@
         color .2s ease;
 }
 
-.rose-finder-page .filter-trigger:hover {
+.rose-finder .filter-trigger:hover {
     background: var(--rf-charcoal-dark);
 }
 
-.rose-finder-page .filter-trigger:focus-visible {
+.rose-finder .filter-trigger:focus-visible {
     outline: 2px solid var(--rf-charcoal);
     outline-offset: 3px;
 }
 
-.rose-finder-page .filter-trigger-icon {
+.rose-finder .filter-trigger-icon {
     font-size: 16px;
     line-height: 1;
 }
@@ -371,16 +406,16 @@
    ACTIVE FILTERS
    ========================================================= */
 
-.rose-finder-page .active-filters {
+.rose-finder .active-filters {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 11px;
 
-    padding: 16px 0 0;
+    padding: 28px 0 0;
 }
 
-.rose-finder-page .active-filters-label {
+.rose-finder .active-filters-label {
     color: var(--rf-muted);
 
     font-size: 10px;
@@ -390,7 +425,7 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .active-chips {
+.rose-finder .active-chips {
     display: flex;
     flex-wrap: wrap;
     gap: 7px;
@@ -401,11 +436,11 @@
     list-style: none;
 }
 
-.rose-finder-page .active-chips li {
+.rose-finder .active-chips li {
     margin: 0;
 }
 
-.rose-finder-page .active-chips a {
+.rose-finder .active-chips a {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -426,12 +461,12 @@
         border-color .2s ease;
 }
 
-.rose-finder-page .active-chips a:hover {
+.rose-finder .active-chips a:hover {
     border-color: #dcb9bf;
     background: #f0d3d8;
 }
 
-.rose-finder-page .chip-remove {
+.rose-finder .chip-remove {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -451,20 +486,21 @@
    RESULTS
    ========================================================= */
 
-.rose-finder-page .plant-finder-layout {
+.rose-finder .plant-finder-layout {
     display: block;
 
     width: 100%;
 
-    margin-top: 32px;
+    margin-top: 28px;
 }
 
-.rose-finder-page .plant-finder-results {
+.rose-finder .plant-finder-results {
+    position: relative;
     width: 100%;
     min-width: 0;
 }
 
-.rose-finder-page .results-header {
+.rose-finder .results-header {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -473,7 +509,7 @@
     margin-bottom: 24px;
 }
 
-.rose-finder-page .results-header h2 {
+.rose-finder .results-header h2 {
     margin: 5px 0 0;
 
     color: var(--rf-muted);
@@ -484,7 +520,7 @@
     line-height: 1;
 }
 
-.rose-finder-page .results-header p {
+.rose-finder .results-header p {
     margin: 0;
 
     color: var(--rf-muted);
@@ -497,7 +533,7 @@
    RESULTS GRID
    ========================================================= */
 
-.rose-finder-page .results-grid {
+.rose-finder .results-grid {
     display: grid;
 
     grid-template-columns:
@@ -508,13 +544,13 @@
     width: 100%;
 }
 
-.rose-finder-page .rose-card {
+.rose-finder .rose-card {
     min-width: 0;
 
     background: var(--rf-white);
 }
 
-.rose-finder-page .rose-image-wrap {
+.rose-finder .rose-image-wrap {
     position: relative;
 
     display: block;
@@ -528,7 +564,7 @@
     background: var(--rf-page);
 }
 
-.rose-finder-page .rose-image-wrap img {
+.rose-finder .rose-image-wrap img {
     display: block;
 
     width: 100%;
@@ -539,11 +575,11 @@
     transition: transform .45s ease;
 }
 
-.rose-finder-page .rose-image-wrap:hover img {
+.rose-finder .rose-image-wrap:hover img {
     transform: scale(1.045);
 }
 
-.rose-finder-page .rose-card-badge {
+.rose-finder .rose-card-badge {
     position: absolute;
     z-index: 2;
 
@@ -564,7 +600,7 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .rose-image-arrow {
+.rose-finder .rose-image-arrow {
     position: absolute;
     z-index: 2;
 
@@ -592,22 +628,22 @@
         transform .2s ease;
 }
 
-.rose-finder-page .rose-image-wrap:hover .rose-image-arrow,
-.rose-finder-page .rose-image-wrap:focus-visible .rose-image-arrow {
+.rose-finder .rose-image-wrap:hover .rose-image-arrow,
+.rose-finder .rose-image-wrap:focus-visible .rose-image-arrow {
     opacity: 1;
     transform: translateY(0);
 }
 
-.rose-finder-page .rose-image-wrap:focus-visible {
+.rose-finder .rose-image-wrap:focus-visible {
     outline: 2px solid var(--rf-charcoal);
     outline-offset: 3px;
 }
 
-.rose-finder-page .rose-card-body {
+.rose-finder .rose-card-body {
     padding: 16px 2px 0;
 }
 
-.rose-finder-page .rose-card-type {
+.rose-finder .rose-card-type {
     display: block;
 
     margin-bottom: 7px;
@@ -621,7 +657,7 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .rose-card-body h3 {
+.rose-finder .rose-card-body h3 {
     margin: 0;
 
     color: var(--rf-muted);
@@ -632,7 +668,7 @@
     line-height: 1.05;
 }
 
-.rose-finder-page .rose-card-body p {
+.rose-finder .rose-card-body p {
     display: -webkit-box;
 
     overflow: hidden;
@@ -648,7 +684,7 @@
     -webkit-line-clamp: 3;
 }
 
-.rose-finder-page .rose-card-footer {
+.rose-finder .rose-card-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -660,14 +696,14 @@
     border-top: 1px solid var(--rf-line);
 }
 
-.rose-finder-page .rose-price {
+.rose-finder .rose-price {
     color: var(--rf-charcoal);
 
     font-size: 13px;
     font-weight: 700;
 }
 
-.rose-finder-page .view-rose {
+.rose-finder .view-rose {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -688,21 +724,29 @@
     transition: background .2s ease;
 }
 
-.rose-finder-page .view-rose:hover {
+.rose-finder .view-rose:hover {
     background: var(--rf-charcoal-dark);
 }
 
-.rose-finder-page .view-rose:focus-visible {
+.rose-finder .view-rose:focus-visible {
     outline: 2px solid var(--rf-charcoal);
     outline-offset: 3px;
 }
 
 
-/* =========================================================
-   DRAWER OVERLAY
-   ========================================================= */
+.rose-finder.is-loading [data-finder-results] {
+    opacity: .55;
+    pointer-events: none;
+}
 
-.rose-finder-page .finder-drawer-overlay {
+.rose-finder.is-loading [data-finder-results]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, .35);
+}
+
+.rose-finder .finder-drawer-overlay {
     position: fixed;
     z-index: 9998;
 
@@ -718,7 +762,7 @@
         visibility .3s ease;
 }
 
-.rose-finder-page.drawer-open .finder-drawer-overlay {
+.rose-finder.drawer-open .finder-drawer-overlay {
     opacity: 1;
     visibility: visible;
 }
@@ -728,7 +772,7 @@
    DRAWER
    ========================================================= */
 
-.rose-finder-page .finder-drawer {
+.rose-finder .finder-drawer {
     position: fixed;
     z-index: 9999;
 
@@ -750,7 +794,7 @@
     transition: transform .35s cubic-bezier(.22, .61, .36, 1);
 }
 
-.rose-finder-page.drawer-open .finder-drawer {
+.rose-finder.drawer-open .finder-drawer {
     transform: translateX(0);
 }
 
@@ -759,7 +803,7 @@
    DRAWER HEADER
    ========================================================= */
 
-.rose-finder-page .finder-drawer-header {
+.rose-finder .finder-drawer-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -774,7 +818,7 @@
     background: var(--rf-cream);
 }
 
-.rose-finder-page .finder-drawer-header h2 {
+.rose-finder .finder-drawer-header h2 {
     margin: 5px 0 0;
 
     color: var(--rf-muted);
@@ -785,7 +829,7 @@
     line-height: 1;
 }
 
-.rose-finder-page .finder-drawer-close {
+.rose-finder .finder-drawer-close {
     position: relative;
 
     flex: 0 0 auto;
@@ -800,16 +844,16 @@
     background: transparent;
 }
 
-.rose-finder-page .finder-drawer-close:hover {
+.rose-finder .finder-drawer-close:hover {
     background: rgba(71, 71, 71, .06);
 }
 
-.rose-finder-page .finder-drawer-close:focus-visible {
+.rose-finder .finder-drawer-close:focus-visible {
     outline: 2px solid var(--rf-charcoal);
     outline-offset: 3px;
 }
 
-.rose-finder-page .finder-drawer-close span {
+.rose-finder .finder-drawer-close span {
     position: absolute;
 
     top: 50%;
@@ -821,11 +865,11 @@
     background: var(--rf-charcoal);
 }
 
-.rose-finder-page .finder-drawer-close span:first-child {
+.rose-finder .finder-drawer-close span:first-child {
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.rose-finder-page .finder-drawer-close span:last-child {
+.rose-finder .finder-drawer-close span:last-child {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
@@ -834,7 +878,7 @@
    DRAWER BODY
    ========================================================= */
 
-.rose-finder-page .finder-drawer-body {
+.rose-finder .finder-drawer-body {
     flex: 1 1 auto;
 
     overflow-y: auto;
@@ -844,7 +888,7 @@
     overscroll-behavior: contain;
 }
 
-.rose-finder-page .finder-form {
+.rose-finder .finder-form {
     width: 100%;
 }
 
@@ -853,11 +897,11 @@
    DRAWER SECTIONS
    ========================================================= */
 
-.rose-finder-page .drawer-filter-section {
+.rose-finder .drawer-filter-section {
     margin-bottom: 28px;
 }
 
-.rose-finder-page .drawer-section-heading {
+.rose-finder .drawer-section-heading {
     display: flex;
     align-items: center;
     gap: 11px;
@@ -865,14 +909,14 @@
     margin-bottom: 17px;
 }
 
-.rose-finder-page .drawer-section-heading .finder-step {
+.rose-finder .drawer-section-heading .finder-step {
     width: 29px;
     height: 29px;
 
     font-size: 8px;
 }
 
-.rose-finder-page .drawer-section-heading h3 {
+.rose-finder .drawer-section-heading h3 {
     margin: 4px 0 0;
 
     color: var(--rf-muted);
@@ -883,7 +927,7 @@
     line-height: 1;
 }
 
-.rose-finder-page .drawer-description {
+.rose-finder .drawer-description {
     margin: -4px 0 25px;
 
     color: var(--rf-ink);
@@ -897,13 +941,13 @@
    DRAWER SELECTS
    ========================================================= */
 
-.rose-finder-page .drawer-select-section {
+.rose-finder .drawer-select-section {
     padding-bottom: 25px;
 
     border-bottom: 1px solid var(--rf-line);
 }
 
-.rose-finder-page .filter-select {
+.rose-finder .filter-select {
     position: relative;
 
     display: flex;
@@ -925,23 +969,23 @@
         box-shadow .2s ease;
 }
 
-.rose-finder-page .filter-select:last-child {
+.rose-finder .filter-select:last-child {
     margin-bottom: 0;
 }
 
-.rose-finder-page .filter-select:hover {
+.rose-finder .filter-select:hover {
     border-color: var(--rf-charcoal);
 
     box-shadow: 0 5px 18px rgba(0, 0, 0, .04);
 }
 
-.rose-finder-page .filter-select:focus-within {
+.rose-finder .filter-select:focus-within {
     outline: 2px solid var(--rf-charcoal);
     outline-offset: 2px;
 }
 
-.rose-finder-page .filter-icon,
-.rose-finder-page .colour-swatch {
+.rose-finder .filter-icon,
+.rose-finder .colour-swatch {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -958,7 +1002,7 @@
     background: var(--rf-sage);
 }
 
-.rose-finder-page .filter-icon img {
+.rose-finder .filter-icon img {
     display: block;
 
     width: 27px;
@@ -967,7 +1011,7 @@
     object-fit: contain;
 }
 
-.rose-finder-page .colour-swatch-all {
+.rose-finder .colour-swatch-all {
     border: 4px solid #faf9f4;
 
     background:
@@ -981,7 +1025,113 @@
     box-shadow: 0 0 0 1px var(--rf-line);
 }
 
-.rose-finder-page .filter-select-copy {
+.rose-finder .colour-swatch-image {
+    padding: 4px;
+    overflow: hidden;
+}
+
+.rose-finder .colour-swatch-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.rose-finder .colour-picker {
+    position: relative;
+    margin: 0 0 11px;
+}
+
+.rose-finder .colour-picker-trigger {
+    width: 100%;
+    text-align: left;
+}
+
+.rose-finder .colour-picker-panel {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+
+    max-height: min(320px, 50vh);
+    overflow-y: auto;
+
+    padding: 8px;
+
+    border: 1px solid var(--rf-line);
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .1);
+}
+
+.rose-finder .colour-picker.is-open .colour-picker-panel {
+    display: flex;
+}
+
+.rose-finder .colour-picker.is-open .colour-picker-trigger {
+    border-color: var(--rf-charcoal);
+}
+
+.rose-finder .colour-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    min-height: 48px;
+
+    margin: 0;
+    padding: 8px 10px;
+
+    border: 0;
+    background: transparent;
+    color: var(--rf-ink);
+
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.rose-finder .colour-option:hover,
+.rose-finder .colour-option:focus-visible {
+    background: var(--rf-cream);
+    outline: none;
+}
+
+.rose-finder .colour-option.is-active {
+    background: var(--rf-cream);
+    font-weight: 600;
+}
+
+.rose-finder .colour-option-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--rf-page);
+}
+
+.rose-finder .colour-option-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.rose-finder .colour-option-label {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.rose-finder .filter-select-copy {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -989,7 +1139,7 @@
     min-width: 0;
 }
 
-.rose-finder-page .filter-select-copy small {
+.rose-finder .filter-select-copy small {
     color: var(--rf-muted);
 
     font-size: 9px;
@@ -1000,7 +1150,7 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .filter-select-copy strong {
+.rose-finder .filter-select-copy strong {
     overflow: hidden;
 
     color: var(--rf-ink);
@@ -1014,7 +1164,7 @@
     white-space: nowrap;
 }
 
-.rose-finder-page .filter-select select {
+.rose-finder .filter-select select {
     position: absolute;
 
     inset: 0;
@@ -1030,7 +1180,7 @@
     cursor: pointer;
 }
 
-.rose-finder-page .select-chevron {
+.rose-finder .select-chevron {
     position: absolute;
 
     right: 14px;
@@ -1048,7 +1198,7 @@
    CHARACTERISTIC GROUPS
    ========================================================= */
 
-.rose-finder-page .characteristic-group {
+.rose-finder .characteristic-group {
     display: block;
 
     min-width: 0;
@@ -1060,11 +1210,11 @@
     border-bottom: 1px solid var(--rf-line);
 }
 
-.rose-finder-page .characteristic-group:last-child {
+.rose-finder .characteristic-group:last-child {
     margin-bottom: 0;
 }
 
-.rose-finder-page .characteristic-group legend {
+.rose-finder .characteristic-group legend {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1083,7 +1233,7 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .characteristic-group legend small {
+.rose-finder .characteristic-group legend small {
     color: var(--rf-muted);
 
     font-size: 9px;
@@ -1093,7 +1243,7 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .characteristic-grid {
+.rose-finder .characteristic-grid {
     display: grid;
 
     grid-template-columns:
@@ -1104,7 +1254,7 @@
     width: 100%;
 }
 
-.rose-finder-page .characteristic {
+.rose-finder .characteristic {
     position: relative;
 
     display: flex;
@@ -1139,7 +1289,7 @@
         box-shadow .2s ease;
 }
 
-.rose-finder-page .characteristic:hover {
+.rose-finder .characteristic:hover {
     border-color: var(--rf-charcoal);
 
     transform: translateY(-1px);
@@ -1147,12 +1297,12 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
 }
 
-.rose-finder-page .characteristic:focus-within {
+.rose-finder .characteristic:focus-within {
     outline: 2px solid var(--rf-charcoal);
     outline-offset: 2px;
 }
 
-.rose-finder-page .characteristic input {
+.rose-finder .characteristic input {
     position: absolute;
 
     inset: 0;
@@ -1167,7 +1317,7 @@
     cursor: pointer;
 }
 
-.rose-finder-page .characteristic-icon {
+.rose-finder .characteristic-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1178,7 +1328,7 @@
     margin-bottom: 7px;
 }
 
-.rose-finder-page .characteristic-icon img {
+.rose-finder .characteristic-icon img {
     display: block;
 
     width: 54px;
@@ -1187,7 +1337,7 @@
     object-fit: contain;
 }
 
-.rose-finder-page .characteristic-name {
+.rose-finder .characteristic-name {
     display: block;
 
     max-width: 100%;
@@ -1199,7 +1349,7 @@
     line-height: 1.3;
 }
 
-.rose-finder-page .characteristic-check {
+.rose-finder .characteristic-check {
     position: absolute;
 
     top: 7px;
@@ -1227,7 +1377,7 @@
         transform .15s ease;
 }
 
-.rose-finder-page .characteristic.is-selected {
+.rose-finder .characteristic.is-selected {
     border: 2px solid var(--rf-charcoal);
 
     background: var(--rf-cream);
@@ -1235,7 +1385,7 @@
     padding: 8px 6px;
 }
 
-.rose-finder-page .characteristic.is-selected .characteristic-check {
+.rose-finder .characteristic.is-selected .characteristic-check {
     opacity: 1;
 
     transform: scale(1);
@@ -1246,7 +1396,7 @@
    DRAWER FOOTER
    ========================================================= */
 
-.rose-finder-page .finder-drawer-footer {
+.rose-finder .finder-drawer-footer {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -1262,14 +1412,14 @@
     box-shadow: 0 -5px 20px rgba(0, 0, 0, .04);
 }
 
-.rose-finder-page .drawer-result-summary {
+.rose-finder .drawer-result-summary {
     display: flex;
     flex-direction: column;
 
     margin-right: auto;
 }
 
-.rose-finder-page .drawer-result-summary strong {
+.rose-finder .drawer-result-summary strong {
     color: var(--rf-charcoal);
 
     font-family: "Forum", serif;
@@ -1278,7 +1428,7 @@
     line-height: 1;
 }
 
-.rose-finder-page .drawer-result-summary span {
+.rose-finder .drawer-result-summary span {
     margin-top: 3px;
 
     color: var(--rf-muted);
@@ -1290,7 +1440,7 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .drawer-clear {
+.rose-finder .drawer-clear {
     padding: 10px 4px;
 
     color: var(--rf-charcoal);
@@ -1302,11 +1452,11 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .drawer-clear:hover {
+.rose-finder .drawer-clear:hover {
     text-decoration: underline;
 }
 
-.rose-finder-page .drawer-done {
+.rose-finder .drawer-done {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1328,11 +1478,11 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .drawer-done:hover {
+.rose-finder .drawer-done:hover {
     background: var(--rf-charcoal-dark);
 }
 
-.rose-finder-page .drawer-done:focus-visible {
+.rose-finder .drawer-done:focus-visible {
     outline: 2px solid var(--rf-charcoal);
     outline-offset: 3px;
 }
@@ -1342,7 +1492,7 @@
    EMPTY RESULTS
    ========================================================= */
 
-.rose-finder-page .empty-results {
+.rose-finder .empty-results {
     max-width: 680px;
 
     margin: 30px auto;
@@ -1355,7 +1505,7 @@
     text-align: center;
 }
 
-.rose-finder-page .empty-results-icon {
+.rose-finder .empty-results-icon {
     margin-bottom: 14px;
 
     color: var(--rf-charcoal);
@@ -1365,7 +1515,7 @@
     line-height: 1;
 }
 
-.rose-finder-page .empty-results h2 {
+.rose-finder .empty-results h2 {
     margin: 9px 0 12px;
 
     color: var(--rf-muted);
@@ -1376,7 +1526,7 @@
     line-height: 1;
 }
 
-.rose-finder-page .empty-results p {
+.rose-finder .empty-results p {
     max-width: 500px;
 
     margin: 0 auto;
@@ -1387,7 +1537,7 @@
     line-height: 1.7;
 }
 
-.rose-finder-page .primary-button {
+.rose-finder .primary-button {
     display: inline-flex;
     align-items: center;
     gap: 12px;
@@ -1405,7 +1555,7 @@
     text-transform: uppercase;
 }
 
-.rose-finder-page .primary-button:hover {
+.rose-finder .primary-button:hover {
     background: var(--rf-charcoal-dark);
 }
 
@@ -1414,7 +1564,7 @@
    PAGINATION
    ========================================================= */
 
-.rose-finder-page .finder-pagination {
+.rose-finder .finder-pagination {
     display: flex;
     justify-content: center;
 
@@ -1423,38 +1573,46 @@
     margin-top: 45px;
 }
 
-.rose-finder-page .finder-pagination nav {
+.rose-finder .finder-pagination nav {
+    display: block;
+}
+
+.rose-finder .finder-page-list {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
 }
 
-.rose-finder-page .finder-pagination nav > div {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+.rose-finder .finder-page-list li {
+    margin: 0;
+    padding: 0;
 }
 
-.rose-finder-page .finder-pagination a,
-.rose-finder-page .finder-pagination span {
+.rose-finder .finder-page-list a,
+.rose-finder .finder-page-list span {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    min-width: 38px;
-    height: 38px;
+    min-width: 40px;
+    height: 40px;
 
-    padding: 0 10px;
-    margin: 0;
+    padding: 0 12px;
 
-    border: 1px solid transparent;
-    border-radius: 0;
+    border: 1px solid var(--rf-line);
 
-    background: transparent;
+    background: var(--rf-white);
     color: var(--rf-charcoal);
 
     font-family: inherit;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     line-height: 1;
     text-decoration: none;
@@ -1462,7 +1620,7 @@
     box-sizing: border-box;
 }
 
-.rose-finder-page .finder-pagination a {
+.rose-finder .finder-page-list a {
     cursor: pointer;
 
     transition:
@@ -1471,56 +1629,27 @@
         color .15s ease;
 }
 
-.rose-finder-page .finder-pagination a:hover {
-    border-color: var(--rf-line);
+.rose-finder .finder-page-list a:hover {
+    border-color: var(--rf-charcoal);
     background: var(--rf-cream);
-    color: var(--rf-charcoal);
 }
 
-.rose-finder-page .finder-pagination .active span {
+.rose-finder .finder-page-list a:focus-visible {
+    outline: 2px solid var(--rf-charcoal);
+    outline-offset: 2px;
+}
+
+.rose-finder .finder-page-list .active span {
     border-color: var(--rf-charcoal);
     background: var(--rf-charcoal);
     color: #fff;
 }
 
-.rose-finder-page .finder-pagination .disabled span {
+.rose-finder .finder-page-list .disabled span {
     border-color: transparent;
     background: transparent;
     color: #b5b5b5;
     cursor: default;
-    opacity: .65;
-}
-
-.rose-finder-page .finder-pagination .ellipsis span,
-.rose-finder-page .finder-pagination span[aria-disabled="true"] {
-    border-color: transparent;
-    background: transparent;
-    color: #999;
-}
-
-.rose-finder-page .finder-pagination svg {
-    width: 16px;
-    height: 16px;
-}
-
-.rose-finder-page .finder-pagination a svg {
-    display: block;
-}
-
-.rose-finder-page .finder-pagination ul {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-.rose-finder-page .finder-pagination li {
-    margin: 0;
-    padding: 0;
 }
 
 
@@ -1530,7 +1659,7 @@
 
 @media (max-width: 1100px) {
 
-    .rose-finder-page .results-grid {
+    .rose-finder .results-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
     }
@@ -1546,22 +1675,30 @@
         padding-bottom: 65px;
     }
 
-    .rose-finder-page .rose-finder-hero {
-        margin-right: -16px;
-        margin-left: -16px;
-
+    .rose-finder .rose-finder-hero {
         padding: 50px 16px 48px;
     }
 
-    .rose-finder-page .rose-finder-hero h1 {
+    .rose-finder .finder-hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .rose-finder .hero-customise {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .rose-finder .rose-finder-hero h1 {
         font-size: 50px;
     }
 
-    .rose-finder-page .rose-finder-hero p {
+    .rose-finder .rose-finder-hero p {
         font-size: 14px;
     }
 
-    .rose-finder-page .hero-circle-one {
+    .rose-finder .hero-circle-one {
         width: 300px;
         height: 300px;
 
@@ -1569,25 +1706,25 @@
         right: -130px;
     }
 
-    .rose-finder-page .hero-circle-two,
-    .rose-finder-page .hero-leaf {
+    .rose-finder .hero-circle-two,
+    .rose-finder .hero-leaf {
         display: none;
     }
 
-    .rose-finder-page .finder-topbar {
+    .rose-finder .finder-topbar {
         align-items: flex-start;
         flex-direction: column;
     }
 
-    .rose-finder-page .finder-toolbar-actions {
+    .rose-finder .finder-toolbar-actions {
         width: 100%;
     }
 
-    .rose-finder-page .filter-trigger {
+    .rose-finder .filter-trigger {
         width: 100%;
     }
 
-    .rose-finder-page .results-grid {
+    .rose-finder .results-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
 
@@ -1599,41 +1736,42 @@
 
 @media (max-width: 560px) {
 
-    .rose-finder-page .results-grid {
+    .rose-finder .results-grid {
         grid-template-columns: 1fr;
     }
 
-    .rose-finder-page .results-header {
+    .rose-finder .results-header {
         align-items: flex-start;
         flex-direction: column;
     }
 
-    .rose-finder-page .finder-drawer {
+    .rose-finder .finder-drawer {
         width: 100%;
     }
 
-    .rose-finder-page .finder-drawer-header {
+    .rose-finder .finder-drawer-header {
         padding: 22px 20px 18px;
     }
 
-    .rose-finder-page .finder-drawer-body {
+    .rose-finder .finder-drawer-body {
         padding: 22px 20px 30px;
     }
 
-    .rose-finder-page .finder-drawer-footer {
+    .rose-finder .finder-drawer-footer {
         padding: 14px 20px;
+        padding-bottom: calc(14px + env(safe-area-inset-bottom));
     }
 
-    .rose-finder-page .characteristic-grid {
+    .rose-finder .characteristic-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
     }
 
-    .rose-finder-page .drawer-done {
+    .rose-finder .drawer-done {
         flex: 0 0 auto;
     }
 
-    .rose-finder-page .drawer-clear {
+    .rose-finder .drawer-clear {
         display: none;
     }
 
@@ -1642,19 +1780,19 @@
 
 @media (max-width: 390px) {
 
-    .rose-finder-page .rose-finder-hero h1 {
+    .rose-finder .rose-finder-hero h1 {
         font-size: 43px;
     }
 
-    .rose-finder-page .finder-drawer-footer {
+    .rose-finder .finder-drawer-footer {
         gap: 8px;
     }
 
-    .rose-finder-page .drawer-result-summary strong {
+    .rose-finder .drawer-result-summary strong {
         font-size: 20px;
     }
 
-    .rose-finder-page .drawer-done {
+    .rose-finder .drawer-done {
         padding: 0 13px;
     }
 
@@ -1667,9 +1805,9 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-    .rose-finder-page *,
-    .rose-finder-page *::before,
-    .rose-finder-page *::after {
+    .rose-finder *,
+    .rose-finder *::before,
+    .rose-finder *::after {
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
         animation-duration: .01ms !important;
@@ -1680,8 +1818,8 @@
 </style>
 
 
-<section
-    class="rose-finder-page"
+<div
+    class="rose-finder"
     data-finder
 >
 
@@ -1693,10 +1831,6 @@
 
         <div class="rose-finder-hero-content">
 
-            <span class="finder-eyebrow">
-                Harkness Roses
-            </span>
-
             <h1>
                 Find your perfect rose
             </h1>
@@ -1706,23 +1840,40 @@
                 you're looking for and we'll narrow the collection down for you.
             </p>
 
-            <div class="finder-hero-meta">
+            <div class="finder-hero-actions">
 
-                <span>
-                    <strong>{{ $roses->total() }}</strong>
-                    {{ Str::plural('rose', $roses->total()) }}
-                </span>
+                <button
+                    type="button"
+                    class="hero-customise"
+                    data-filter-open
+                    aria-controls="filter-drawer"
+                    aria-expanded="false"
+                >
+                    <span aria-hidden="true">☰</span>
+                    <span>Customise your search</span>
+                </button>
 
-                @if($hasFilters)
+            </div>
 
-                    <span class="meta-divider"></span>
+            <div class="proto-hero-tools" data-proto-hero-extras>
+                <button type="button" class="proto-chip-btn is-accent" data-proto-surprise>
+                    Surprise me
+                </button>
+                <button type="button" class="proto-chip-btn" data-proto-share>
+                    Share this search
+                </button>
+            </div>
 
-                    <a href="{{ route('rose-finder') }}">
-                        Reset your search
-                    </a>
-
-                @endif
-
+            <div class="proto-quick-start" data-proto-quick-start>
+                <button type="button" class="proto-chip-btn" data-proto-jump="colour">
+                    Colour
+                </button>
+                <button type="button" class="proto-chip-btn" data-proto-jump="locations">
+                    Where it will grow
+                </button>
+                <button type="button" class="proto-chip-btn" data-proto-jump="fragrances">
+                    Fragrance
+                </button>
             </div>
 
         </div>
@@ -1742,310 +1893,27 @@
     </header>
 
 
-    {{-- =====================================================
-         FINDER HEADER
-         ===================================================== --}}
+    <div class="rose-finder-page">
 
-    <div class="rose-finder-shell">
+        <div class="rose-finder-shell">
 
-        <div class="finder-topbar">
-
-            <div class="finder-heading">
-
-                <span class="finder-step">
-                    01
-                </span>
-
-                <div>
-
-                    <span class="finder-label">
-                        Refine your search
-                    </span>
-
-                    <h2>
-                        What are you looking for?
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div class="finder-toolbar-actions">
-
-                @if($hasFilters)
-
-                    <a
-                        class="clear-filters"
-                        href="{{ route('rose-finder') }}"
-                    >
-                        <span aria-hidden="true">↺</span>
-                        Clear all
-                    </a>
-
-                @endif
-
-
-                <button
-                    type="button"
-                    class="filter-trigger"
-                    data-filter-open
-                    aria-controls="filter-drawer"
-                    aria-expanded="false"
-                >
-
-                    <span
-                        class="filter-trigger-icon"
-                        aria-hidden="true"
-                    >
-                        ☰
-                    </span>
-
-                    <span>
-                        Customise
-                    </span>
-
-                </button>
-
-            </div>
-
+        {{-- Active filter chips --}}
+        <div data-finder-chips>
+            @include('rose-finder.partials.chips')
         </div>
 
 
-        {{-- =====================================================
-             ACTIVE FILTER CHIPS
-             ===================================================== --}}
-
-        @if($chips)
-
-            <div class="active-filters">
-
-                <span class="active-filters-label">
-                    Your selection
-                </span>
-
-                <ul class="active-chips">
-
-                    @foreach($chips as $chip)
-
-                        <li>
-
-                            <a href="{{ $chip['url'] }}">
-
-                                <span>
-                                    {{ $chip['label'] }}
-                                </span>
-
-                                <span
-                                    class="chip-remove"
-                                    aria-hidden="true"
-                                >
-                                    ×
-                                </span>
-
-                                <span class="visually-hidden">
-                                    Remove {{ $chip['label'] }}
-                                </span>
-
-                            </a>
-
-                        </li>
-
-                    @endforeach
-
-                </ul>
-
-            </div>
-
-        @endif
-
-
-        {{-- =====================================================
-             RESULTS
-             ===================================================== --}}
-
+        {{-- Results --}}
         <div class="plant-finder-layout">
 
-            <main class="plant-finder-results">
-
-                <div class="results-header">
-
-                    <div>
-
-                        <span class="finder-label">
-                            Your results
-                        </span>
-
-                        <h2>
-                            {{ $roses->total() }}
-                            {{ Str::plural('rose', $roses->total()) }}
-                        </h2>
-
-                    </div>
-
-
-                    @if($roses->total())
-
-                        <p>
-                            Showing roses matching your selected criteria
-                        </p>
-
-                    @endif
-
-                </div>
-
-
-                @if($roses->isEmpty())
-
-                    <div class="empty-results">
-
-                        <div
-                            class="empty-results-icon"
-                            aria-hidden="true"
-                        >
-                            ♧
-                        </div>
-
-                        <span class="finder-label">
-                            Nothing quite yet
-                        </span>
-
-                        <h2>
-                            No roses match those filters
-                        </h2>
-
-                        <p>
-                            Try removing one of your selections or start again
-                            with a broader size or colour.
-                        </p>
-
-                        <a
-                            class="primary-button"
-                            href="{{ route('rose-finder') }}"
-                        >
-                            <span>
-                                Clear all filters
-                            </span>
-
-                            <span aria-hidden="true">
-                                →
-                            </span>
-                        </a>
-
-                    </div>
-
-                @else
-
-                    <div class="results-grid">
-
-                        @foreach($roses as $rose)
-
-                            <article class="rose-card">
-
-                                <a
-                                    class="rose-image-wrap"
-                                    href="{{ $rose->shop_url ?: 'https://www.roses.co.uk/' }}"
-                                    aria-label="View {{ $rose->name }}"
-                                >
-
-                                    <span class="rose-card-badge">
-                                        {{ $rose->type }}
-                                    </span>
-
-                                    <img
-                                        src="{{ $rose->image_url }}"
-                                        alt="{{ $rose->name }}"
-                                        loading="lazy"
-                                    >
-
-                                    <span
-                                        class="rose-image-arrow"
-                                        aria-hidden="true"
-                                    >
-                                        ↗
-                                    </span>
-
-                                </a>
-
-
-                                <div class="rose-card-body">
-
-                                    <span class="rose-card-type">
-                                        {{ $rose->type }}
-                                    </span>
-
-                                    <h3>
-                                        {{ $rose->name }}
-                                    </h3>
-
-
-                                    @if($rose->description)
-
-                                        <p>
-                                            {{ $rose->description }}
-                                        </p>
-
-                                    @endif
-
-
-                                    <div class="rose-card-footer">
-
-                                        @if($rose->price)
-
-                                            <span class="rose-price">
-                                                {{ Number::currency(
-                                                    (float) $rose->price,
-                                                    'GBP'
-                                                ) }}
-                                            </span>
-
-                                        @else
-
-                                            <span></span>
-
-                                        @endif
-
-
-                                        <a
-                                            class="view-rose"
-                                            href="{{ $rose->shop_url ?: 'https://www.roses.co.uk/' }}"
-                                        >
-
-                                            <span>
-                                                View rose
-                                            </span>
-
-                                            <span aria-hidden="true">
-                                                →
-                                            </span>
-
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-                        @endforeach
-
-                    </div>
-
-
-                    @if($roses->hasPages())
-
-                        <nav
-                            class="finder-pagination"
-                            aria-label="Rose finder pages"
-                        >
-                            {{ $roses->links() }}
-                        </nav>
-
-                    @endif
-
-                @endif
-
+            <main
+                class="plant-finder-results"
+                data-finder-results
+            >
+                @include('rose-finder.partials.results')
             </main>
+
+        </div>
 
         </div>
 
@@ -2113,7 +1981,7 @@
 
             <form
                 method="GET"
-                action="{{ route('rose-finder') }}"
+                action="{{ url()->current() }}"
                 data-finder-form
                 class="finder-form"
             >
@@ -2215,61 +2083,110 @@
 
                     {{-- COLOUR --}}
 
-                    <label class="filter-select colour-select">
+                    @php
+                        $selectedColour = $filters['colour'] ?? '';
+                        $colourIcons = \App\Support\RoseFinderCatalog::colourIcons();
+                        $selectedColourIcon = $selectedColour !== ''
+                            ? ($colourIcons[$selectedColour] ?? null)
+                            : null;
+                    @endphp
 
-                        <span class="colour-swatch colour-swatch-all"></span>
-
-
-                        <span class="filter-select-copy">
-
-                            <small>
-                                Flower colour
-                            </small>
-
-                            <strong>
-
-                                @if(!empty($filters['colour']))
-                                    {{ $colours[$filters['colour']] ?? 'Choose a colour' }}
-                                @else
-                                    Choose a colour
-                                @endif
-
-                            </strong>
-
-                        </span>
-
-
-                        <select
+                    <div
+                        class="colour-picker"
+                        data-colour-picker
+                        data-proto-section="colour"
+                    >
+                        <input
+                            type="hidden"
                             name="colour"
-                            aria-label="Choose a flower colour"
+                            value="{{ $selectedColour }}"
+                            data-colour-input
                         >
 
-                            <option value="">
-                                Any colour
-                            </option>
+                        <button
+                            type="button"
+                            class="filter-select colour-select colour-picker-trigger"
+                            data-colour-trigger
+                            aria-haspopup="listbox"
+                            aria-expanded="false"
+                            aria-controls="colour-picker-panel"
+                        >
+                            @if($selectedColourIcon)
+                                <span class="colour-swatch colour-swatch-image">
+                                    <img
+                                        src="{{ asset('images/finder/colours/'.$selectedColourIcon) }}"
+                                        alt=""
+                                        width="34"
+                                        height="34"
+                                        data-colour-trigger-icon
+                                    >
+                                </span>
+                            @else
+                                <span
+                                    class="colour-swatch colour-swatch-all"
+                                    data-colour-trigger-icon
+                                ></span>
+                            @endif
+
+                            <span class="filter-select-copy">
+                                <small>Flower colour</small>
+                                <strong data-colour-trigger-label>
+                                    @if($selectedColour !== '')
+                                        {{ $colours[$selectedColour] ?? 'Choose a colour' }}
+                                    @else
+                                        Choose a colour
+                                    @endif
+                                </strong>
+                            </span>
+
+                            <span class="select-chevron" aria-hidden="true">⌄</span>
+                        </button>
+
+                        <div
+                            id="colour-picker-panel"
+                            class="colour-picker-panel"
+                            data-colour-panel
+                            role="listbox"
+                            aria-label="Flower colour"
+                        >
+                            <button
+                                type="button"
+                                class="colour-option {{ $selectedColour === '' ? 'is-active' : '' }}"
+                                role="option"
+                                data-colour-value=""
+                                data-colour-label="Any colour"
+                                aria-selected="{{ $selectedColour === '' ? 'true' : 'false' }}"
+                            >
+                                <span class="colour-option-icon">
+                                    <span class="colour-swatch colour-swatch-all" style="width:34px;height:34px;margin:0;flex:none;"></span>
+                                </span>
+                                <span class="colour-option-label">Any colour</span>
+                            </button>
 
                             @foreach($colours as $value => $label)
-
-                                <option
-                                    value="{{ $value }}"
-                                    @selected(($filters['colour'] ?? '') === $value)
+                                <button
+                                    type="button"
+                                    class="colour-option {{ $selectedColour === $value ? 'is-active' : '' }}"
+                                    role="option"
+                                    data-colour-value="{{ $value }}"
+                                    data-colour-label="{{ $label }}"
+                                    data-colour-icon="{{ asset('images/finder/colours/'.$colourIcons[$value]) }}"
+                                    aria-selected="{{ $selectedColour === $value ? 'true' : 'false' }}"
                                 >
-                                    {{ $label }}
-                                </option>
-
+                                    <span class="colour-option-icon">
+                                        <img
+                                            src="{{ asset('images/finder/colours/'.$colourIcons[$value]) }}"
+                                            alt=""
+                                            width="34"
+                                            height="34"
+                                            loading="lazy"
+                                        >
+                                    </span>
+                                    <span class="colour-option-label">{{ $label }}</span>
+                                </button>
                             @endforeach
-
-                        </select>
-
-
-                        <span
-                            class="select-chevron"
-                            aria-hidden="true"
-                        >
-                            ⌄
-                        </span>
-
-                    </label>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -2315,9 +2232,20 @@
 
                 @foreach($groups as $group)
 
-                    <fieldset class="characteristic-group">
+                    <fieldset class="characteristic-group" data-proto-section="{{ $group['key'] }}">
 
                         <legend>
+
+                            @if(! empty($group['options'][0]['icon']))
+                                <span class="proto-drawer-icon" aria-hidden="true">
+                                    <img
+                                        src="{{ asset('images/finder/'.$group['options'][0]['icon']) }}"
+                                        alt=""
+                                        width="28"
+                                        height="28"
+                                    >
+                                </span>
+                            @endif
 
                             <span>
                                 {{ $group['title'] }}
@@ -2405,54 +2333,16 @@
              DRAWER FOOTER
              ===================================================== --}}
 
-        <div class="finder-drawer-footer">
-
-            <div class="drawer-result-summary">
-
-                <strong>
-                    {{ $roses->total() }}
-                </strong>
-
-                <span>
-                    {{ Str::plural('rose', $roses->total()) }} found
-                </span>
-
-            </div>
-
-
-            @if($hasFilters)
-
-                <a
-                    href="{{ route('rose-finder') }}"
-                    class="drawer-clear"
-                >
-                    Clear all
-                </a>
-
-            @endif
-
-
-            <button
-                type="button"
-                class="drawer-done"
-                data-filter-close
-            >
-
-                <span>
-                    View results
-                </span>
-
-                <span aria-hidden="true">
-                    →
-                </span>
-
-            </button>
-
+        <div
+            class="finder-drawer-footer"
+            data-finder-drawer-footer
+        >
+            @include('rose-finder.partials.drawer-footer')
         </div>
 
     </aside>
 
-</section>
+</div>
 
 
 <script>
@@ -2471,17 +2361,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const overlay =
         finder.querySelector('[data-filter-overlay]');
 
-    const openButton =
-        finder.querySelector('[data-filter-open]');
-
-    const closeButtons =
-        finder.querySelectorAll('[data-filter-close]');
+    const openButtons =
+        finder.querySelectorAll('[data-filter-open]');
 
     const form =
         finder.querySelector('[data-finder-form]');
 
 
     let lastFocusedElement = null;
+
+
+    function setOpenButtonsExpanded(expanded) {
+
+        openButtons.forEach(function (button) {
+            button.setAttribute(
+                'aria-expanded',
+                expanded ? 'true' : 'false'
+            );
+        });
+
+    }
 
 
     /* =========================================================
@@ -2498,6 +2397,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.activeElement;
 
         finder.classList.add('drawer-open');
+        sessionStorage.setItem('rose-finder-drawer', 'open');
 
         drawer.setAttribute(
             'aria-hidden',
@@ -2513,14 +2413,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-        if (openButton) {
-
-            openButton.setAttribute(
-                'aria-expanded',
-                'true'
-            );
-
-        }
+        setOpenButtonsExpanded(true);
 
         document.body.style.overflow = 'hidden';
 
@@ -2550,6 +2443,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         finder.classList.remove('drawer-open');
+        sessionStorage.removeItem('rose-finder-drawer');
 
         drawer.setAttribute(
             'aria-hidden',
@@ -2565,14 +2459,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-        if (openButton) {
-
-            openButton.setAttribute(
-                'aria-expanded',
-                'false'
-            );
-
-        }
+        setOpenButtonsExpanded(false);
 
         document.body.style.overflow = '';
 
@@ -2590,26 +2477,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    if (openButton) {
+    openButtons.forEach(function (button) {
 
-        openButton.addEventListener(
+        button.addEventListener(
             'click',
             openDrawer
         );
 
-    }
-
-
-    closeButtons.forEach(function (button) {
-
-        button.addEventListener(
-            'click',
-            function () {
-                closeDrawer();
-            }
-        );
-
     });
+
+
+    finder.addEventListener(
+        'click',
+        function (event) {
+
+            const closeButton =
+                event.target.closest(
+                    '[data-filter-close]'
+                );
+
+            if (!closeButton || !finder.contains(closeButton)) {
+                return;
+            }
+
+            closeDrawer();
+
+        }
+    );
 
 
     if (overlay) {
@@ -2632,15 +2526,22 @@ document.addEventListener('DOMContentLoaded', function () {
         'keydown',
         function (event) {
 
+            if (event.key !== 'Escape') {
+                return;
+            }
+
             if (
-                event.key === 'Escape' &&
-                finder.classList.contains('drawer-open')
+                colourPicker &&
+                colourPicker.classList.contains('is-open')
             ) {
-
                 event.preventDefault();
+                closeColourPicker();
+                return;
+            }
 
+            if (finder.classList.contains('drawer-open')) {
+                event.preventDefault();
                 closeDrawer();
-
             }
 
         }
@@ -2714,100 +2615,425 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /* =========================================================
+       COLOUR PICKER
+       ========================================================= */
+
+    const colourPicker =
+        finder.querySelector('[data-colour-picker]');
+
+    function closeColourPicker() {
+        if (!colourPicker) {
+            return;
+        }
+
+        colourPicker.classList.remove('is-open');
+
+        const trigger = colourPicker.querySelector('[data-colour-trigger]');
+        const panel = colourPicker.querySelector('[data-colour-panel]');
+
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+    function openColourPicker() {
+        if (!colourPicker) {
+            return;
+        }
+
+        colourPicker.classList.add('is-open');
+
+        const trigger = colourPicker.querySelector('[data-colour-trigger]');
+
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    function setColourSelection(option, options) {
+        if (!colourPicker || !option) {
+            return;
+        }
+
+        const shouldSubmit = !options || options.submit !== false;
+        const value = option.getAttribute('data-colour-value') || '';
+        const label = option.getAttribute('data-colour-label') || 'Choose a colour';
+        const icon = option.getAttribute('data-colour-icon') || '';
+        const input = colourPicker.querySelector('[data-colour-input]');
+        const labelEl = colourPicker.querySelector('[data-colour-trigger-label]');
+        const iconHost = colourPicker.querySelector('[data-colour-trigger-icon]');
+
+        if (input) {
+            input.value = value;
+        }
+
+        if (labelEl) {
+            labelEl.textContent = value === '' ? 'Choose a colour' : label;
+        }
+
+        if (iconHost) {
+            if (icon) {
+                iconHost.className = 'colour-swatch colour-swatch-image';
+                iconHost.innerHTML =
+                    '<img src="' + icon + '" alt="" width="34" height="34">';
+                iconHost.setAttribute('data-colour-trigger-icon', '');
+            } else {
+                iconHost.className = 'colour-swatch colour-swatch-all';
+                iconHost.innerHTML = '';
+                iconHost.setAttribute('data-colour-trigger-icon', '');
+            }
+        }
+
+        colourPicker.querySelectorAll('.colour-option').forEach(function (item) {
+            const active = item === option;
+            item.classList.toggle('is-active', active);
+            item.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+
+        closeColourPicker();
+
+        if (shouldSubmit) {
+            submitFilters();
+        }
+    }
+
+    if (colourPicker) {
+        const trigger = colourPicker.querySelector('[data-colour-trigger]');
+        const panel = colourPicker.querySelector('[data-colour-panel]');
+
+        if (trigger) {
+            trigger.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                if (colourPicker.classList.contains('is-open')) {
+                    closeColourPicker();
+                } else {
+                    openColourPicker();
+                }
+            });
+        }
+
+        if (panel) {
+            panel.addEventListener('click', function (event) {
+                const option = event.target.closest('[data-colour-value]');
+
+                if (!option) {
+                    return;
+                }
+
+                event.preventDefault();
+                setColourSelection(option);
+            });
+        }
+
+        document.addEventListener('click', function (event) {
+            if (!colourPicker.contains(event.target)) {
+                closeColourPicker();
+            }
+        });
+    }
+
+
+    /* =========================================================
        FILTER FORM
        ========================================================= */
 
     if (form) {
 
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            submitFilters();
+        });
 
-        /*
-         * Submit selects immediately.
-         */
-
-        form.querySelectorAll('select')
-            .forEach(function (select) {
-
-                select.addEventListener(
-                    'change',
-                    function () {
-
-                        updateSelectLabel(
-                            select
-                        );
-
-                        submitFilters();
-
-                    }
-                );
-
+        form.querySelectorAll('select').forEach(function (select) {
+            select.addEventListener('change', function () {
+                updateSelectLabel(select);
+                submitFilters();
             });
+        });
 
-
-        /*
-         * Submit checkbox changes immediately.
-         */
-
-        form.querySelectorAll(
-            'input[type="checkbox"]'
-        ).forEach(function (input) {
-
-            input.addEventListener(
-                'change',
-                function () {
-
-                    updateCheckboxState(
-                        input
-                    );
-
-                    submitFilters();
-
-                }
-            );
-
+        form.querySelectorAll('input[type="checkbox"]').forEach(function (input) {
+            input.addEventListener('change', function () {
+                updateCheckboxState(input);
+                submitFilters();
+            });
         });
 
     }
 
 
     /* =========================================================
-       FILTER SUBMISSION
+       FILTER SUBMISSION (AJAX — keep drawer open)
        ========================================================= */
 
     let submitting = false;
+    let pendingSubmit = false;
+
+    const chipsContainer =
+        finder.querySelector('[data-finder-chips]');
+
+    const resultsContainer =
+        finder.querySelector('[data-finder-results]');
+
+    const drawerFooter =
+        finder.querySelector('[data-finder-drawer-footer]');
 
 
-    function submitFilters() {
+    function buildFilterUrl(page) {
+        const params = new URLSearchParams();
 
-        if (!form || submitting) {
+        params.set('partial', '1');
+
+        if (form) {
+            form.querySelectorAll('select').forEach(function (select) {
+                if (select.value !== '') {
+                    params.set(select.name, select.value);
+                }
+            });
+
+            form.querySelectorAll(
+                'input[type="hidden"][name="colour"], input[type="hidden"][name="size"]'
+            ).forEach(function (input) {
+                if (input.value !== '') {
+                    params.set(input.name, input.value);
+                }
+            });
+
+            form.querySelectorAll(
+                'input[type="checkbox"]:checked'
+            ).forEach(function (input) {
+                params.append(input.name, input.value);
+            });
+        }
+
+        if (page && page > 1) {
+            params.set('page', String(page));
+        }
+
+        const query = params.toString();
+
+        return window.location.pathname + (query ? '?' + query : '');
+    }
+
+
+    function publicFilterUrl(requestUrl) {
+        const url = new URL(
+            requestUrl || buildFilterUrl(),
+            window.location.origin
+        );
+
+        url.searchParams.delete('partial');
+
+        const query = url.searchParams.toString();
+
+        return url.pathname + (query ? '?' + query : '');
+    }
+
+
+    async function loadFinder(requestUrl) {
+
+        if (submitting) {
+            pendingSubmit = requestUrl || true;
             return;
         }
 
         submitting = true;
+        pendingSubmit = false;
 
-        /*
-         * Ensure empty checkbox groups don't create
-         * unexpected values in the query string.
-         */
+        finder.classList.add('is-loading');
 
-        form.querySelectorAll(
-            'input[type="checkbox"]'
-        ).forEach(function (input) {
+        const fetchUrl = requestUrl || buildFilterUrl();
+        const historyUrl = publicFilterUrl(fetchUrl);
 
-            if (!input.checked) {
-                input.removeAttribute('name');
+        try {
+
+            const response = await fetch(fetchUrl, {
+                headers: {
+                    'Accept': 'application/json',
+                    'X-Finder-Partial': '1',
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+                credentials: 'same-origin',
+            });
+
+            const contentType =
+                response.headers.get('content-type') || '';
+
+            if (!response.ok || !contentType.includes('application/json')) {
+                throw new Error('Unexpected finder response');
             }
 
-        });
+            const data = await response.json();
 
+            if (resultsContainer) {
+                resultsContainer.innerHTML = data.results;
+            }
 
-        /*
-         * Use native submit so no other submit handler
-         * can interfere.
-         */
+            if (chipsContainer) {
+                chipsContainer.innerHTML = data.chips;
+            }
 
-        HTMLFormElement.prototype.submit.call(form);
+            if (drawerFooter) {
+                drawerFooter.innerHTML = data.drawerFooter;
+            }
+
+            window.history.replaceState(
+                { finderFilters: true },
+                '',
+                historyUrl
+            );
+
+            document.dispatchEvent(new CustomEvent('rose-finder:updated', {
+                detail: { total: data.total },
+            }));
+
+            if (sessionStorage.getItem('rose-finder-drawer') === 'open') {
+                finder.classList.add('drawer-open');
+                setOpenButtonsExpanded(true);
+                document.body.style.overflow = 'hidden';
+            }
+
+        } catch (error) {
+
+            console.error('Rose finder update failed', error);
+
+            if (requestUrl) {
+                window.location.assign(publicFilterUrl(fetchUrl));
+            }
+
+        } finally {
+
+            finder.classList.remove('is-loading');
+            submitting = false;
+
+            if (pendingSubmit) {
+                const next = pendingSubmit === true
+                    ? null
+                    : pendingSubmit;
+
+                pendingSubmit = false;
+                loadFinder(next);
+            }
+
+        }
 
     }
+
+
+    function submitFilters() {
+        if (!form) {
+            return;
+        }
+
+        loadFinder(buildFilterUrl());
+    }
+
+
+    function queryValues(params, field) {
+        const values = [];
+
+        params.forEach(function (value, key) {
+            if (
+                key === field ||
+                key === field + '[]' ||
+                key.indexOf(field + '[') === 0
+            ) {
+                values.push(value);
+            }
+        });
+
+        return values;
+    }
+
+
+    function syncFormFromUrl(requestUrl) {
+        if (!form) {
+            return;
+        }
+
+        const url = new URL(
+            requestUrl || window.location.href,
+            window.location.origin
+        );
+        const params = url.searchParams;
+
+        form.querySelectorAll('input[type="checkbox"]').forEach(function (input) {
+            const field = input.name.replace(/\[\]$/, '');
+            const selected = queryValues(params, field);
+
+            input.checked = selected.indexOf(input.value) !== -1;
+            updateCheckboxState(input);
+        });
+
+        const sizeSelect = form.querySelector('select[name="size"]');
+
+        if (sizeSelect) {
+            sizeSelect.value = params.get('size') || '';
+            updateSelectLabel(sizeSelect);
+        }
+
+        const colourValue = params.get('colour') || '';
+        const colourInput = form.querySelector('[data-colour-input]');
+
+        if (colourInput) {
+            colourInput.value = colourValue;
+        }
+
+        if (colourPicker) {
+            const option = colourPicker.querySelector(
+                '.colour-option[data-colour-value="' + colourValue + '"]'
+            ) || colourPicker.querySelector('.colour-option[data-colour-value=""]');
+
+            if (option) {
+                setColourSelection(option, { submit: false });
+            }
+        }
+    }
+
+
+    /*
+     * Chips, reset/clear links, and pagination should update via AJAX —
+     * never full-page navigate (or land on a partial=1 URL).
+     */
+    finder.addEventListener('click', function (event) {
+        const link = event.target.closest(
+            [
+                '.active-chips a[href]',
+                'a.clear-filters[href]',
+                'a.drawer-clear[href]',
+                '.empty-results a[href]',
+                '.proto-relax-colour a[href]',
+                '.finder-pagination a[href]',
+            ].join(', ')
+        );
+
+        if (!link || !finder.contains(link)) {
+            return;
+        }
+
+        const url = new URL(link.href, window.location.origin);
+
+        if (url.origin !== window.location.origin) {
+            return;
+        }
+
+        event.preventDefault();
+
+        url.searchParams.delete('partial');
+        url.searchParams.set('partial', '1');
+
+        const requestUrl = url.pathname + url.search;
+
+        syncFormFromUrl(url);
+        loadFinder(requestUrl);
+
+        if (link.closest('.finder-pagination') && resultsContainer) {
+            resultsContainer.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    });
 
 
     /* =========================================================
@@ -2938,16 +3164,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /* =========================================================
-       CLEAN UP BODY SCROLL
+       RESTORE DRAWER / CLEAN UP
        ========================================================= */
+
+    if (sessionStorage.getItem('rose-finder-drawer') === 'open') {
+        openDrawer();
+    }
+
+
+    window.addEventListener(
+        'popstate',
+        function () {
+            window.location.reload();
+        }
+    );
+
 
     window.addEventListener(
         'pageshow',
         function () {
 
-            document.body.style.overflow = '';
-
             submitting = false;
+
+            if (sessionStorage.getItem('rose-finder-drawer') === 'open') {
+                openDrawer();
+            } else {
+                document.body.style.overflow = '';
+            }
 
         }
     );

@@ -5,45 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Rose Finder') | Harkness Roses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 </head>
 <body>
-    <div class="top-site-message">
-        Next Day Delivery available — select at checkout and order before 12:00 midday.
-        <a href="https://www.roses.co.uk/delivery-information">Find out more</a>
-    </div>
-
-    <header class="site-header">
-        <div class="header-top">
-            <div class="header-inner">
-                <form class="site-search" action="https://www.roses.co.uk/search/results/" method="get" role="search">
-                    <label class="visually-hidden" for="search">Search</label>
-                    <input id="search" type="search" name="search" placeholder="Search our site...">
-                    <button type="submit" aria-label="Search">Search</button>
-                </form>
-
-                <a class="brand" href="https://www.roses.co.uk/" aria-label="Harkness Roses home">
-                    <img src="{{ asset('images/brand/logo_harkn.png') }}" alt="Harkness Roses" width="400" height="75">
-                </a>
-
-                <nav class="header-tools" aria-label="Account">
-                    <a href="https://support.roses.co.uk/">Contact</a>
-                    <a href="https://www.roses.co.uk/csp/secure/rose/web/accaccount.csp">Account</a>
-                    <a href="https://www.roses.co.uk/basket">Basket</a>
-                </nav>
-            </div>
-        </div>
-
-        <nav class="main-nav" aria-label="Main navigation">
-            <a href="https://www.roses.co.uk/bare-root-roses">Bare Root Roses</a>
-            <a href="https://www.roses.co.uk/potted-roses">Potted Roses</a>
-            <a href="https://www.roses.co.uk/shop-by-type-of-rose">Shop By Type</a>
-            <a href="https://www.roses.co.uk/shop-by-colour">Shop By Colour</a>
-            <a href="https://www.roses.co.uk/gift-roses">Gift Roses</a>
-            <a href="https://www.roses.co.uk/the-essential-guide-to-roses">Rose Care</a>
-            <a class="active" href="{{ route('rose-finder') }}">Rose Finder</a>
-        </nav>
-    </header>
+    @include('partials.site-header')
 
     <main>
         @yield('content')
