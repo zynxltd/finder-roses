@@ -1,11 +1,51 @@
 <?php
 
-use App\Models\Rose;
+use App\Support\RoseCatalogue;
 use App\Support\RoseFinderCatalog;
-use Database\Seeders\RoseSeeder;
+
+beforeEach(function () {
+    RoseCatalogue::clearFake();
+});
+
+afterEach(function () {
+    RoseCatalogue::clearFake();
+});
+
+/**
+ * @param  list<array<string, mixed>>  $roses
+ */
+function fakeRoses(array $roses): void
+{
+    $prepared = [];
+
+    foreach (array_values($roses) as $index => $rose) {
+        $prepared[] = array_merge([
+            'id' => $index + 1,
+            'name' => 'Test Rose '.($index + 1),
+            'type' => 'Shrub Rose',
+            'description' => 'A test rose.',
+            'image_url' => 'https://harkness-roses.s3.amazonaws.com/700/780038.jpg',
+            'locations' => ['mixed_borders'],
+            'sizes' => ['medium'],
+            'fragrance' => 'medium',
+            'colours' => ['pink'],
+            'light' => ['full_sun', 'partial_sun'],
+            'aspects' => ['east_south_west_facing'],
+            'soils' => ['all_soil'],
+            'flowering' => 'repeat_flowering',
+            'features' => [],
+            'price' => 29.00,
+            'shop_url' => 'https://www.roses.co.uk/product/999999/test-rose-'.($index + 1),
+        ], $rose);
+    }
+
+    RoseCatalogue::fake($prepared);
+}
 
 it('shows the rose finder with matching roses', function () {
-    Rose::factory()->create(['name' => 'Olivia Rose']);
+    fakeRoses([
+        ['name' => 'Olivia Rose'],
+    ]);
 
     $this->get(route('rose-finder'))
         ->assertSuccessful()
@@ -20,8 +60,6 @@ it('shows the rose finder with matching roses', function () {
 });
 
 it('shows real catalogue roses with roses.co.uk product links', function () {
-    $this->seed(RoseSeeder::class);
-
     $this->get(route('rose-finder'))
         ->assertSuccessful()
         ->assertSee('Chandos Beauty')
@@ -33,13 +71,15 @@ it('shows real catalogue roses with roses.co.uk product links', function () {
 });
 
 it('filters roses by location', function () {
-    Rose::factory()->create([
-        'name' => 'Patio Gem',
-        'locations' => ['pots'],
-    ]);
-    Rose::factory()->create([
-        'name' => 'Wall Climber',
-        'locations' => ['wall_fence'],
+    fakeRoses([
+        [
+            'name' => 'Patio Gem',
+            'locations' => ['pots'],
+        ],
+        [
+            'name' => 'Wall Climber',
+            'locations' => ['wall_fence'],
+        ],
     ]);
 
     $this->get(route('rose-finder', ['locations' => ['pots']]))
@@ -50,15 +90,17 @@ it('filters roses by location', function () {
 });
 
 it('filters roses by fragrance and colour', function () {
-    Rose::factory()->create([
-        'name' => 'Strong Pink',
-        'fragrance' => 'strong',
-        'colours' => ['pink'],
-    ]);
-    Rose::factory()->create([
-        'name' => 'Delicate Yellow',
-        'fragrance' => 'delicate',
-        'colours' => ['yellow'],
+    fakeRoses([
+        [
+            'name' => 'Strong Pink',
+            'fragrance' => 'strong',
+            'colours' => ['pink'],
+        ],
+        [
+            'name' => 'Delicate Yellow',
+            'fragrance' => 'delicate',
+            'colours' => ['yellow'],
+        ],
     ]);
 
     $this->get(route('rose-finder', [
@@ -71,13 +113,15 @@ it('filters roses by fragrance and colour', function () {
 });
 
 it('filters roses that are good in shade', function () {
-    Rose::factory()->create([
-        'name' => 'Shade Rose',
-        'light' => ['shade_areas', 'partial_sun'],
-    ]);
-    Rose::factory()->create([
-        'name' => 'Sun Rose',
-        'light' => ['full_sun'],
+    fakeRoses([
+        [
+            'name' => 'Shade Rose',
+            'light' => ['shade_areas', 'partial_sun'],
+        ],
+        [
+            'name' => 'Sun Rose',
+            'light' => ['full_sun'],
+        ],
     ]);
 
     $this->get(route('rose-finder', ['lights' => ['shade_areas']]))
@@ -87,13 +131,15 @@ it('filters roses that are good in shade', function () {
 });
 
 it('requires roses to match every selected extra feature', function () {
-    Rose::factory()->create([
-        'name' => 'Cutting Rose',
-        'features' => ['cuttings'],
-    ]);
-    Rose::factory()->create([
-        'name' => 'Exposed Cutter',
-        'features' => ['cuttings', 'windy_or_exposed'],
+    fakeRoses([
+        [
+            'name' => 'Cutting Rose',
+            'features' => ['cuttings'],
+        ],
+        [
+            'name' => 'Exposed Cutter',
+            'features' => ['cuttings', 'windy_or_exposed'],
+        ],
     ]);
 
     $this->get(route('rose-finder', ['features' => ['cuttings', 'windy_or_exposed']]))
@@ -127,9 +173,11 @@ it('shows colour rose icons in the finder drawer', function () {
 });
 
 it('returns partial finder updates as json', function () {
-    Rose::factory()->create([
-        'name' => 'Ajax Rose',
-        'locations' => ['pots'],
+    fakeRoses([
+        [
+            'name' => 'Ajax Rose',
+            'locations' => ['pots'],
+        ],
     ]);
 
     $this->getJson(route('rose-finder', ['locations' => ['pots'], 'partial' => 1]))
@@ -145,9 +193,9 @@ it('returns partial finder updates as json', function () {
 });
 
 it('renders html when a browser opens a partial query without json accept', function () {
-    Rose::factory()->count(13)->create([
+    fakeRoses(array_fill(0, 13, [
         'locations' => ['mixed_borders'],
-    ]);
+    ]));
 
     $this->get(route('rose-finder', [
         'partial' => 1,
@@ -160,7 +208,7 @@ it('renders html when a browser opens a partial query without json accept', func
 });
 
 it('keeps partial out of pagination links', function () {
-    Rose::factory()->count(13)->create();
+    fakeRoses(array_fill(0, 13, []));
 
     $html = $this->get(route('rose-finder', ['partial' => 1]))
         ->assertSuccessful()
