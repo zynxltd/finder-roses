@@ -220,6 +220,26 @@ html[data-proto-usp-ticker="on"] .site-nav .usp-box .divider {
     display: none;
 }
 
+/* =========================================================
+   FEATURE: CRO header vs classic
+   ========================================================= */
+
+.header-cro {
+    display: none;
+}
+
+html[data-proto-cro-header="on"] .header-legacy {
+    display: none !important;
+}
+
+html[data-proto-cro-header="on"] .header-cro {
+    display: block;
+}
+
+html[data-proto-cro-header="on"] .usp-wrapper {
+    display: none;
+}
+
 @keyframes protoUspFade {
     from { opacity: 0; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }

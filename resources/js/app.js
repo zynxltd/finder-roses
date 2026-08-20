@@ -21,13 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initPrototypeEnhancements();
 
     const mobileSearch = document.getElementById('mobile-search-wrapper');
-    const openSearch = document.querySelector('.mobile-search-toggle');
     const closeSearch = document.querySelector('.mobile-search-close');
 
     const mobileMenu = document.getElementById('mobile-menu-drawer');
     const mobileMenuTop = document.getElementById('mobile-menu-top');
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-    const openMenu = document.querySelector('.mobile-menu-toggle');
     const closeMenu = document.querySelector('.mobile-menu-close');
     const mobileMenuPanels = [mobileMenuTop, mobileMenu].filter(Boolean);
     let mobileMenuHideTimer = null;
@@ -125,9 +123,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    openSearch?.addEventListener('click', openMobileSearch);
+    document.addEventListener('click', (event) => {
+        if (event.target.closest('.mobile-search-toggle')) {
+            openMobileSearch();
+        }
+
+        if (event.target.closest('.mobile-menu-toggle')) {
+            openMobileMenu();
+        }
+    });
+
     closeSearch?.addEventListener('click', closeMobileSearch);
-    openMenu?.addEventListener('click', openMobileMenu);
     closeMenu?.addEventListener('click', closeMobileMenu);
     mobileMenuOverlay?.addEventListener('click', closeMobileMenu);
 

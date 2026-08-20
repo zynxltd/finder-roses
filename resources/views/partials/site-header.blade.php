@@ -1,5 +1,6 @@
 <header id="nav" class="site-nav">
-    <div class="header-top-wrapper">
+    {{-- Classic header (default) --}}
+    <div class="header-top-wrapper header-legacy" data-header-variant="legacy">
         <div class="header-container">
             <div class="header-toolbar">
                 <div class="header-toolbar-start">
@@ -102,6 +103,138 @@
         </div>
     </div>
 
+    {{-- CRO header (prototype toggle) --}}
+    <div class="header-cro" data-header-variant="cro">
+        <div class="header-cro-utility">
+            <div class="header-cro-container">
+                <p class="header-cro-promise">
+                    <span class="material-icons" aria-hidden="true">verified</span>
+                    Lifetime guarantee on all roses
+                </p>
+                <a class="header-cro-phone" href="tel:03332101044">
+                    <span class="material-icons" aria-hidden="true">call</span>
+                    <span class="header-cro-phone-text">
+                        <span class="header-cro-phone-label">Need help? Call</span>
+                        <strong>0333 210 1044</strong>
+                    </span>
+                </a>
+                <p class="header-cro-years desktop-only">
+                    <span class="material-icons" aria-hidden="true">local_florist</span>
+                    Growing British roses for over 140 years
+                </p>
+            </div>
+        </div>
+
+        <div class="header-cro-bar" data-cro-sticky>
+            <div class="header-cro-container header-cro-main">
+                <div class="header-cro-mobile mobile-only">
+                    <button type="button" class="header-cro-icon-btn mobile-menu-toggle" aria-label="Open menu">
+                        <span class="material-icons" aria-hidden="true">menu</span>
+                    </button>
+                </div>
+
+                <a class="header-cro-logo" href="https://www.roses.co.uk/" aria-label="Harkness Roses home">
+                    <img
+                        src="{{ asset('images/brand/logo_harkn.png') }}"
+                        class="desktop-logo"
+                        alt="Harkness Roses"
+                        width="400"
+                        height="75"
+                    >
+                    <img
+                        src="{{ asset('images/brand/logo_harkn_mobile.png') }}"
+                        class="small-logo"
+                        alt="Harkness Roses"
+                        width="300"
+                        height="127"
+                    >
+                </a>
+
+                <div class="header-cro-search">
+                    <label class="visually-hidden" for="site-search-cro">Search roses</label>
+                    <form class="search" action="https://www.roses.co.uk/search/results/" method="get" role="search">
+                        <div class="search-input">
+                            <span class="material-icons search-leading desktop-only" aria-hidden="true">search</span>
+                            <input
+                                id="site-search-cro"
+                                type="search"
+                                name="search"
+                                placeholder="Search roses, colours, gifts..."
+                            >
+                            <button type="submit" class="header-cro-search-submit desktop-only">Search</button>
+                            <button type="submit" class="header-cro-search-icon mobile-only" aria-label="Search">
+                                <span class="material-icons" aria-hidden="true">search</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="header-cro-actions">
+                    <a class="header-cro-action desktop-only" href="https://support.roses.co.uk/" target="_blank" rel="noopener">
+                        <span class="header-cro-action-icon">
+                            <img class="header-cro-contact-icon" src="{{ asset('images/header/contact_icon.png') }}" alt="" width="60" height="50">
+                        </span>
+                        <span class="label">Contact</span>
+                    </a>
+                    <a class="header-cro-action" href="https://www.roses.co.uk/csp/secure/rose/web/accaccount.csp">
+                        <span class="header-cro-action-icon">
+                            <span class="material-icons" aria-hidden="true">person_outline</span>
+                        </span>
+                        <span class="label">Account</span>
+                    </a>
+                    <a class="header-cro-basket" href="https://www.roses.co.uk/basket" rel="nofollow" aria-label="Your Shopping Basket">
+                        <span class="header-cro-action-icon header-cro-basket-icon">
+                            <span class="material-icons" aria-hidden="true">shopping_basket</span>
+                            <span class="count"><span>0</span></span>
+                        </span>
+                        <span class="label">Basket</span>
+                    </a>
+                </div>
+            </div>
+
+            <nav class="header-cro-nav desktop-only" aria-label="Main navigation">
+                <div class="header-cro-container">
+                    <ul class="header-cro-menu">
+                        <li>
+                            <a href="https://www.roses.co.uk/bare-root-roses">Bare Root Roses</a>
+                        </li>
+                        <li>
+                            <a href="https://www.roses.co.uk/potted-roses">Potted Roses</a>
+                        </li>
+                        <li>
+                            <a href="https://www.roses.co.uk/shop-by-type-of-rose">
+                                Shop By Type Of Rose
+                                <span class="material-icons" aria-hidden="true">expand_more</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.roses.co.uk/shop-by-colour">
+                                Shop By Colour
+                                <span class="material-icons" aria-hidden="true">expand_more</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.roses.co.uk/charity-roses">Charity Roses</a>
+                        </li>
+                        <li>
+                            <a href="https://www.roses.co.uk/gift-roses">
+                                Gift Roses
+                                <span class="material-icons" aria-hidden="true">expand_more</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.roses.co.uk/the-essential-guide-to-roses">Rose Care and Maintenance</a>
+                        </li>
+                    </ul>
+                    <a class="header-cro-finder is-active" href="{{ route('rose-finder') }}">
+                        <span class="material-icons" aria-hidden="true">auto_awesome</span>
+                        Rose Finder
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
     <div class="usp-wrapper">
         <div class="usp-inner">
             <div class="usp-box">
@@ -185,13 +318,16 @@
     <a href="https://support.roses.co.uk/" target="_blank" rel="noopener">
         <div class="menu-item top">Contact</div>
     </a>
+    <a class="mobile-menu-phone" href="tel:03332101044">
+        <div class="menu-item top">Call 0333 210 1044</div>
+    </a>
 </nav>
 
 <div class="mobile-search-overlay" id="mobile-search-wrapper" hidden>
     <button type="button" class="mobile-search-close material-icons" aria-label="Close search">close</button>
     <form class="search" action="https://www.roses.co.uk/search/results/" method="get" role="search">
         <div class="search-input">
-            <input type="search" name="search" placeholder="Search our site..." autocomplete="off">
+            <input type="search" name="search" placeholder="Search roses, colours, gifts..." autocomplete="off">
             <button type="submit" class="search-button" aria-label="Search">
                 <span class="material-icons" aria-hidden="true">search</span>
             </button>

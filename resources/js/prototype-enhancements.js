@@ -1,4 +1,5 @@
 export const PROTOTYPE_FEATURES = [
+    { id: 'cro-header', label: 'CRO header (vs classic)', defaultOn: false },
     { id: 'card-hover', label: 'Card hover zoom + chips', defaultOn: false },
     { id: 'count-pulse', label: 'Animated rose count', defaultOn: true },
     { id: 'stagger-grid', label: 'Staggered grid entrance', defaultOn: true },
@@ -14,7 +15,7 @@ export const PROTOTYPE_FEATURES = [
     { id: 'match-reasons', label: 'Why this rose?', defaultOn: false },
 ];
 
-const STORAGE_KEY = 'roseFinderPrototypeFeatures.v6';
+const STORAGE_KEY = 'roseFinderPrototypeFeatures.v7';
 
 const DEFAULTS = Object.fromEntries(
     PROTOTYPE_FEATURES.map((feature) => [feature.id, feature.defaultOn]),
@@ -510,12 +511,30 @@ function initHeroAtmosphere(features) {
     });
 }
 
+function initCroHeader(features) {
+    const sticky = document.querySelector('[data-cro-sticky]');
+
+    if (!sticky || sticky.dataset.croStickyBound === '1') {
+        return;
+    }
+
+    sticky.dataset.croStickyBound = '1';
+
+    const onScroll = () => {
+        sticky.classList.toggle('is-scrolled', window.scrollY > 8 && !!readFeatures()['cro-header']);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+}
+
 function refreshBehaviors(features) {
     initUspTicker(features);
     initQuickStart(features);
     initSurpriseAndShare(features);
     initCompare(features);
     initHeroAtmosphere(features);
+    initCroHeader(features);
     restaggerGrid(features);
     pulseCount(features);
 }
