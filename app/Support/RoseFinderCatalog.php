@@ -241,6 +241,28 @@ class RoseFinderCatalog
     }
 
     /**
+     * @return array<string, string>
+     */
+    public static function sorts(): array
+    {
+        return [
+            'name_asc' => 'Name A–Z',
+            'name_desc' => 'Name Z–A',
+            'fragrance_desc' => 'Fragrance: strongest',
+            'fragrance_asc' => 'Fragrance: lightest',
+            'height_desc' => 'Height: tallest',
+            'height_asc' => 'Height: shortest',
+            'price_asc' => 'Price: low to high',
+            'price_desc' => 'Price: high to low',
+        ];
+    }
+
+    public static function defaultSort(): string
+    {
+        return 'name_asc';
+    }
+
+    /**
      * @param  array<string, string>  $labels
      * @param  array<string, string>  $icons
      * @return list<array{value: string, label: string, icon: string}>

@@ -51,7 +51,9 @@ it('shows the rose finder with matching roses', function () {
         ->assertSuccessful()
         ->assertSee('Rose Finder')
         ->assertSee('Olivia Rose')
-        ->assertSee('Find your perfect rose')
+        ->assertSee('Find your')
+        ->assertSee('perfect')
+        ->assertSee('hero-title-accent', false)
         ->assertSee('Customise your search')
         ->assertSee('Lifetime Guarantee On All Roses')
         ->assertSee('Rose Finder')
@@ -148,10 +150,47 @@ it('requires roses to match every selected extra feature', function () {
         ->assertDontSee('Cutting Rose');
 });
 
-it('rejects unknown filter values', function () {
+it('sorts roses by name descending', function () {
+    fakeRoses([
+        ['name' => 'Alpha Rose', 'price' => 20],
+        ['name' => 'Zeta Rose', 'price' => 40],
+        ['name' => 'Middle Rose', 'price' => 30],
+    ]);
+
+    $this->get(route('rose-finder', ['sort' => 'name_desc']))
+        ->assertSuccessful()
+        ->assertSeeInOrder(['Zeta Rose', 'Middle Rose', 'Alpha Rose']);
+});
+
+it('sorts roses by price ascending', function () {
+    fakeRoses([
+        ['name' => 'Dear Rose', 'price' => 45],
+        ['name' => 'Budget Rose', 'price' => 18],
+        ['name' => 'Mid Rose', 'price' => 29],
+    ]);
+
+    $this->get(route('rose-finder', ['sort' => 'price_asc']))
+        ->assertSuccessful()
+        ->assertSeeInOrder(['Budget Rose', 'Mid Rose', 'Dear Rose']);
+});
+
+it('rejects unknown sort values', function () {
     $this->from(route('rose-finder'))
-        ->get(route('rose-finder', ['locations' => ['not-a-place']]))
+        ->get(route('rose-finder', ['sort' => 'not-a-sort']))
         ->assertRedirect(route('rose-finder'));
+});
+
+it('shows the sort control in results', function () {
+    fakeRoses([
+        ['name' => 'Sortable Rose'],
+    ]);
+
+    $this->get(route('rose-finder'))
+        ->assertSuccessful()
+        ->assertSee('Sort by')
+        ->assertSee('data-finder-sort', false)
+        ->assertSee('Matching your selected criteria')
+        ->assertSee('Name A–Z');
 });
 
 it('exposes an icon for every location filter', function () {
@@ -203,7 +242,8 @@ it('renders html when a browser opens a partial query without json accept', func
         'page' => 2,
     ]))
         ->assertSuccessful()
-        ->assertSee('Find your perfect rose')
+        ->assertSee('Find your')
+        ->assertSee('hero-title-accent', false)
         ->assertDontSee('"results":', false);
 });
 

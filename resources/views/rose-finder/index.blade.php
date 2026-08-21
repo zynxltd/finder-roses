@@ -108,17 +108,65 @@
 }
 
 .rose-finder .rose-finder-hero h1 {
-    max-width: 850px;
+    position: relative;
+    z-index: 1;
+
+    max-width: 900px;
 
     margin: 0;
 
-    color: var(--rf-muted);
+    color: var(--rf-charcoal);
 
     font-family: "Forum", serif;
-    font-size: clamp(48px, 6vw, 78px);
+    font-size: clamp(52px, 7vw, 88px);
     font-weight: 400;
-    letter-spacing: -.015em;
-    line-height: .95;
+    letter-spacing: -.02em;
+    line-height: .92;
+    text-wrap: balance;
+}
+
+.rose-finder .rose-finder-hero h1 .hero-title-accent {
+    position: relative;
+    display: inline-block;
+
+    font-style: italic;
+    color: var(--rf-charcoal-dark);
+}
+
+.rose-finder .rose-finder-hero h1 .hero-title-accent::after {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+    left: -.06em;
+    right: -.06em;
+    bottom: .06em;
+
+    height: .32em;
+
+    background: linear-gradient(
+        90deg,
+        rgba(222, 229, 202, .15) 0%,
+        rgba(222, 229, 202, .85) 35%,
+        rgba(244, 220, 224, .75) 100%
+    );
+    border-radius: 999px;
+}
+
+.rose-finder .rose-finder-hero h1::after {
+    content: "";
+
+    display: block;
+
+    width: min(120px, 28%);
+    height: 2px;
+    margin-top: 22px;
+
+    background: linear-gradient(
+        90deg,
+        var(--rf-charcoal) 0%,
+        rgba(71, 71, 71, .15) 100%
+    );
 }
 
 .rose-finder .rose-finder-hero p {
@@ -174,6 +222,10 @@
 .rose-finder .hero-customise:focus-visible {
     outline: 2px solid var(--rf-charcoal);
     outline-offset: 3px;
+}
+
+.rose-finder .finder-customise-tab {
+    display: none !important;
 }
 
 .rose-finder .finder-hero-meta {
@@ -508,7 +560,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 20px;
+    gap: 24px;
 
     margin-bottom: 24px;
 }
@@ -530,6 +582,88 @@
     color: var(--rf-muted);
 
     font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.rose-finder .results-header-meta {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+
+    flex: 0 1 auto;
+    max-width: none;
+}
+
+.rose-finder .results-header-meta p {
+    flex: 0 0 auto;
+    text-align: right;
+}
+
+.rose-finder .results-sort {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    flex: 0 0 auto;
+
+    color: var(--rf-charcoal);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.rose-finder .results-sort-label {
+    white-space: nowrap;
+}
+
+.rose-finder .results-sort select {
+    min-width: 190px;
+    max-width: 100%;
+    min-height: 42px;
+    margin: 0;
+    padding: 0 36px 0 14px;
+
+    border: 1px solid var(--rf-charcoal);
+    border-radius: 0;
+
+    background:
+        transparent
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23474747' d='M1.4.6 6 5.2 10.6.6 12 2 6 8 0 2z'/%3E%3C/svg%3E")
+        no-repeat right 12px center;
+
+    color: var(--rf-charcoal);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    line-height: 1.2;
+    text-transform: none;
+
+    appearance: none;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.rose-finder .results-sort select:hover {
+    background-color: var(--rf-charcoal);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ffffff' d='M1.4.6 6 5.2 10.6.6 12 2 6 8 0 2z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    color: #fff;
+}
+
+.rose-finder .results-sort select:focus {
+    outline: none;
+}
+
+.rose-finder .results-sort select:focus-visible {
+    outline: 2px solid var(--rf-charcoal);
+    outline-offset: 3px;
 }
 
 
@@ -1749,6 +1883,28 @@
         flex-direction: column;
     }
 
+    .rose-finder .results-header-meta {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        max-width: none;
+        width: 100%;
+    }
+
+    .rose-finder .results-header-meta p {
+        text-align: left;
+        white-space: normal;
+    }
+
+    .rose-finder .results-sort {
+        width: 100%;
+    }
+
+    .rose-finder .results-sort select {
+        flex: 1 1 auto;
+        min-width: 0;
+        width: 100%;
+    }
+
     .rose-finder .finder-drawer {
         width: 100%;
     }
@@ -1836,7 +1992,9 @@
         <div class="rose-finder-hero-content">
 
             <h1>
-                Find your perfect rose
+                Find your
+                <span class="hero-title-accent">perfect</span>
+                rose
             </h1>
 
             <p>
@@ -1929,6 +2087,29 @@
         </div>
 
     </div>
+
+
+    <button
+        type="button"
+        class="finder-customise-tab"
+        data-filter-open
+        aria-controls="filter-drawer"
+        aria-expanded="false"
+        aria-label="Customise your rose search"
+    >
+        <span class="finder-customise-tab-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="12" cy="5.2" rx="2.4" ry="3.4"/>
+                <ellipse cx="17.6" cy="8.2" rx="2.4" ry="3.4" transform="rotate(72 17.6 8.2)"/>
+                <ellipse cx="15.5" cy="14.6" rx="2.4" ry="3.4" transform="rotate(144 15.5 14.6)"/>
+                <ellipse cx="8.5" cy="14.6" rx="2.4" ry="3.4" transform="rotate(-144 8.5 14.6)"/>
+                <ellipse cx="6.4" cy="8.2" rx="2.4" ry="3.4" transform="rotate(-72 6.4 8.2)"/>
+                <circle cx="12" cy="10.4" r="2.35"/>
+                <path d="M10.2 16.8c-.9 1.5-1.5 2.9-1.1 3.6 1.3-.3 2.5-1.1 3.4-2.1-.8 0-1.6-.2-2.3-.5Z"/>
+                <path d="M13.8 16.8c-.7.3-1.5.5-2.3.5.9 1 2.1 1.8 3.4 2.1.4-.7-.2-2.1-1.1-3.6Z"/>
+            </svg>
+        </span>
+    </button>
 
 
     {{-- =====================================================
@@ -2820,6 +3001,12 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        const sortSelect = finder.querySelector('[data-finder-sort]');
+
+        if (sortSelect && sortSelect.value) {
+            params.set('sort', sortSelect.value);
+        }
+
         if (page && page > 1) {
             params.set('page', String(page));
         }
@@ -3006,7 +3193,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 setColourSelection(option, { submit: false });
             }
         }
+
+        const sortSelect = finder.querySelector('[data-finder-sort]');
+
+        if (sortSelect) {
+            sortSelect.value = params.get('sort') || 'name_asc';
+        }
     }
+
+
+    finder.addEventListener('change', function (event) {
+        const sortSelect = event.target.closest('[data-finder-sort]');
+
+        if (!sortSelect || !finder.contains(sortSelect)) {
+            return;
+        }
+
+        loadFinder(buildFilterUrl());
+    });
 
 
     /*

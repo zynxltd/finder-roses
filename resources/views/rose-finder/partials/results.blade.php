@@ -37,9 +37,31 @@
 
     @if($roses->total())
 
-        <p>
-            Showing roses matching your selected criteria
-        </p>
+        <div class="results-header-meta">
+
+            <p>
+                Matching your selected criteria
+            </p>
+
+            <label class="results-sort">
+                <span class="results-sort-label">Sort by</span>
+                <select
+                    name="sort"
+                    data-finder-sort
+                    aria-label="Sort roses"
+                >
+                    @foreach(RoseFinderCatalog::sorts() as $value => $label)
+                        <option
+                            value="{{ $value }}"
+                            @selected(($filters['sort'] ?? RoseFinderCatalog::defaultSort()) === $value)
+                        >
+                            {{ $label }}
+                        </option>
+                    @endforeach
+                </select>
+            </label>
+
+        </div>
 
     @endif
 

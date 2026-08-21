@@ -207,7 +207,7 @@ function restaggerGrid(features) {
 }
 
 function initUspTicker(features) {
-    const boxes = document.querySelectorAll('.site-nav .usp-box');
+    const boxes = document.querySelectorAll('.usp-wrapper .usp-box, .site-nav .usp-box');
 
     if (!boxes.length) {
         return;
@@ -512,16 +512,21 @@ function initHeroAtmosphere(features) {
 }
 
 function initCroHeader(features) {
+    const nav = document.querySelector('#nav.site-nav');
     const sticky = document.querySelector('[data-cro-sticky]');
 
-    if (!sticky || sticky.dataset.croStickyBound === '1') {
+    if (!nav || nav.dataset.croStickyBound === '1') {
         return;
     }
 
-    sticky.dataset.croStickyBound = '1';
+    nav.dataset.croStickyBound = '1';
 
     const onScroll = () => {
-        sticky.classList.toggle('is-scrolled', window.scrollY > 8 && !!readFeatures()['cro-header']);
+        const croOn = !!readFeatures()['cro-header'];
+        const scrolled = window.scrollY > 8 && croOn;
+
+        nav.classList.toggle('is-scrolled', scrolled);
+        sticky?.classList.toggle('is-scrolled', scrolled);
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -542,7 +547,7 @@ function refreshBehaviors(features) {
 export function initPrototypeEnhancements() {
     const features = readFeatures();
     applyFeatureClasses(features);
-    initPanel(features, refreshBehaviors);
+    // Prototype panel tab stays available in code but is not mounted in the UI.
     refreshBehaviors(features);
 
     document.addEventListener('rose-finder:updated', () => {

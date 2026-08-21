@@ -234,37 +234,37 @@
             </nav>
         </div>
     </div>
+</header>
 
-    <div class="usp-wrapper">
-        <div class="usp-inner">
-            <div class="usp-box">
-                Lifetime Guarantee On All Roses
-                <span class="divider" aria-hidden="true"></span>
-            </div>
-            <div class="usp-box">
-                Growing British Roses For Over 140 Years
-                <span class="divider" aria-hidden="true"></span>
-            </div>
-            <div class="usp-box">
-                Chelsea Flower Show Award Winning Roses
-                <span class="divider" aria-hidden="true"></span>
-            </div>
-            <div class="usp-box tp">
-                <div
-                    class="trustpilot-widget"
-                    data-locale="en-GB"
-                    data-template-id="5419b732fbfb950b10de65e5"
-                    data-businessunit-id="611f7c601eaa59001db5cde6"
-                    data-style-height="24px"
-                    data-style-width="100%"
-                    data-theme="light"
-                >
-                    <a href="https://uk.trustpilot.com/review/roses.co.uk" target="_blank" rel="noopener">Trustpilot</a>
-                </div>
+<div class="usp-wrapper">
+    <div class="usp-inner">
+        <div class="usp-box">
+            Lifetime Guarantee On All Roses
+            <span class="divider" aria-hidden="true"></span>
+        </div>
+        <div class="usp-box">
+            Growing British Roses For Over 140 Years
+            <span class="divider" aria-hidden="true"></span>
+        </div>
+        <div class="usp-box">
+            Chelsea Flower Show Award Winning Roses
+            <span class="divider" aria-hidden="true"></span>
+        </div>
+        <div class="usp-box tp">
+            <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="611f7c601eaa59001db5cde6"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="light"
+            >
+                <a href="https://uk.trustpilot.com/review/roses.co.uk" target="_blank" rel="noopener">Trustpilot</a>
             </div>
         </div>
     </div>
-</header>
+</div>
 
 <div class="mobile-menu-overlay" id="mobile-menu-overlay" hidden></div>
 

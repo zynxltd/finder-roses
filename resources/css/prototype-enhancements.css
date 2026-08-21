@@ -1,8 +1,12 @@
+.prototype-panel {
+    display: none !important;
+}
+
 /* =========================================================
-   PROTOTYPE PANEL
+   PROTOTYPE PANEL (kept for optional re-enable)
    ========================================================= */
 
-.prototype-panel {
+.prototype-panel-shell {
     position: fixed;
     z-index: 12000;
     top: 50%;
@@ -200,23 +204,27 @@ html[data-proto-stagger-grid="on"] .results-grid .rose-card {
    FEATURE: USP ticker
    ========================================================= */
 
-html[data-proto-usp-ticker="on"] .site-nav .usp-inner {
+html[data-proto-usp-ticker="on"] .site-nav .usp-inner,
+html[data-proto-usp-ticker="on"] .usp-inner {
     display: block;
     text-align: center;
     min-height: 42px;
 }
 
-html[data-proto-usp-ticker="on"] .site-nav .usp-box {
+html[data-proto-usp-ticker="on"] .site-nav .usp-box,
+html[data-proto-usp-ticker="on"] .usp-box {
     display: none;
     padding: 10px 12px;
 }
 
-html[data-proto-usp-ticker="on"] .site-nav .usp-box.proto-usp-active {
+html[data-proto-usp-ticker="on"] .site-nav .usp-box.proto-usp-active,
+html[data-proto-usp-ticker="on"] .usp-box.proto-usp-active {
     display: block;
     animation: protoUspFade .45s ease;
 }
 
-html[data-proto-usp-ticker="on"] .site-nav .usp-box .divider {
+html[data-proto-usp-ticker="on"] .site-nav .usp-box .divider,
+html[data-proto-usp-ticker="on"] .usp-box .divider {
     display: none;
 }
 
@@ -576,7 +584,8 @@ body.proto-compare-open {
 @media (prefers-reduced-motion: reduce) {
     .proto-count-pulse,
     html[data-proto-stagger-grid="on"] .results-grid .rose-card.proto-stagger-in,
-    html[data-proto-usp-ticker="on"] .site-nav .usp-box.proto-usp-active {
+    html[data-proto-usp-ticker="on"] .site-nav .usp-box.proto-usp-active,
+    html[data-proto-usp-ticker="on"] .usp-box.proto-usp-active {
         animation: none !important;
     }
 }

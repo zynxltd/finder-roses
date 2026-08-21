@@ -16,7 +16,7 @@ class FilterRosesRequest extends FormRequest
 
     protected function prepareForValidation(): void
     {
-        foreach (['size', 'colour'] as $field) {
+        foreach (['size', 'colour', 'sort'] as $field) {
             if ($this->input($field) === '') {
                 $this->merge([$field => null]);
             }
@@ -45,6 +45,7 @@ class FilterRosesRequest extends FormRequest
             'features.*' => ['string', Rule::in(array_keys(RoseFinderCatalog::features()))],
             'size' => ['sometimes', 'nullable', 'string', Rule::in(array_keys(RoseFinderCatalog::sizes()))],
             'colour' => ['sometimes', 'nullable', 'string', Rule::in(array_keys(RoseFinderCatalog::colours()))],
+            'sort' => ['sometimes', 'nullable', 'string', Rule::in(array_keys(RoseFinderCatalog::sorts()))],
         ];
     }
 
@@ -58,7 +59,8 @@ class FilterRosesRequest extends FormRequest
      *     flowerings: list<string>,
      *     features: list<string>,
      *     size: ?string,
-     *     colour: ?string
+     *     colour: ?string,
+     *     sort: string
      * }
      */
     public function filters(): array
@@ -75,6 +77,7 @@ class FilterRosesRequest extends FormRequest
             'features' => array_values($validated['features'] ?? []),
             'size' => $validated['size'] ?? null,
             'colour' => $validated['colour'] ?? null,
+            'sort' => $validated['sort'] ?? RoseFinderCatalog::defaultSort(),
         ];
     }
 
@@ -131,6 +134,10 @@ class FilterRosesRequest extends FormRequest
                 $query[$key],
                 fn (string $item): bool => $item !== $value
             ));
+        }
+
+        if (($query['sort'] ?? null) === RoseFinderCatalog::defaultSort()) {
+            unset($query['sort']);
         }
 
         $query = array_filter(
