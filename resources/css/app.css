@@ -676,6 +676,11 @@ html[data-proto-cro-header="off"] .header-cro-bar {
     transition: color .2s ease;
 }
 
+/* .desktop-only sets display:block later — keep Contact in the same flex column as Account/Basket */
+.header-cro-action.desktop-only {
+    display: inline-flex;
+}
+
 .header-cro-action:hover,
 .header-cro-basket:hover {
     color: #dee5ca;
@@ -691,6 +696,8 @@ html[data-proto-cro-header="off"] .header-cro-bar {
     flex: 0 0 28px;
     width: 28px;
     height: 28px;
+    min-height: 28px;
+    overflow: visible;
 }
 
 .header-cro-action-icon .material-icons {
@@ -706,15 +713,15 @@ html[data-proto-cro-header="off"] .header-cro-bar {
 .header-cro-action-icon img,
 .header-cro-contact-icon {
     display: block;
-    width: 28px;
-    height: auto;
+    width: 26px;
+    height: 26px;
+    margin: 0;
     object-fit: contain;
     object-position: center;
 }
 
-/* Speech-bubble PNG has a left-side tail — shift so the oval sits over the label */
 .header-cro-contact-icon {
-    transform: translateX(14px);
+    transform: none;
 }
 
 .header-cro-action .label,
